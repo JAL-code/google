@@ -1,0 +1,15 @@
+Definitions:
+
+
+Key commands.
+~/purplebox
+./purplebox.py
+strace ./purplebox.py  (System calls)
+strace -o failure.strace ./purplebox.py
+less failure.strace
+mkdir ~/config/purplebox
+./purplebox.py
+
+Pipes the output of strace to a text edit. (In my case: VIM.)
+strace ./script.py | less
+

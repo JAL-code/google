@@ -1,0 +1,10 @@
+Process:
+1. Getting the info
+2. Find root cause
+3. Perform necessary remediation
+
+Short-term remediation
+Workaround = temp fix to get our users back to work
+
+Long-term remediation
+Document actions to fix problem
