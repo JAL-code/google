@@ -47,6 +47,6 @@ STAGE_SIX_TEST = True       # Toggle the printing of files to directory.
 def get_location_for_code():
     # :releative location
     # access_area = 'files_and_exceptions/'
-    access_area = '/home/joseph/meeting_reminder/'
+    access_area = '/home/<user>/<folder>/'
     return access_area
 ```
