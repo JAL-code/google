@@ -26,7 +26,7 @@ How to guide:
 6. Create a file named access.py with the folder for your notes.  This file will store your folder for the macro
 7. The program will generate a file for each file header encountered.
   - Ex: W1-Q2-01-It_Doesnt_Work.txt
-8. If there are problems with the program, toggle the test constaints at the top of the program.  Include a stage test for programs has been most crucial in my coding career.
+8. If there are problems with the program, toggle the test constaints at the top of the program.  Including a staged testing scheme for programs in the past has been most crucial in my coding career when debugging the programs due to data errors.
 
 ```
 # this line is only used to pass text to checks
