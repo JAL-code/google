@@ -48,4 +48,5 @@ def get_location_for_code():
     # :releative location
     # access_area = 'files_and_exceptions/'
     access_area = '/home/joseph/meeting_reminder/'
-    return access_area```
+    return access_area
+```
