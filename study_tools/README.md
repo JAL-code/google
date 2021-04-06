@@ -9,6 +9,8 @@ Tips:
 
 Created a program that will parse the text from the lectures into separate files.
 
+See class_highlights_list_lines.py.
+
 How to guide:
 1. Open a text file.
 2. Note the video title.
@@ -22,11 +24,13 @@ How to guide:
   - Bracket any text you want to save. 
   - Brackets can be independent for each line.  THe code will join the lines until a bracket pair is created.
   - Try for only one bracket per line or several lines.
-6. Repeat steps 1-5 for all videos.
-6. Create a file named access.py with the folder for your notes.  This file will store your folder for the macro
-7. The program will generate a file for each file header encountered.
-  - Ex: W1-Q2-01-It_Doesnt_Work.txt
-8. If there are problems with the program, toggle the test constaints at the top of the program.  Including a staged testing scheme for programs in the past has been most crucial in my coding career when debugging the programs due to data errors.
+6. Repeat steps 1-5 for all videos: See W1-Q2-NO.txt as example input.
+7. Create a file named access.py with the folder for your notes.  This file will store your folder for the macro
+8. Tip: The program can be modified to output the a text file with only the headers and highlights.
+  - See PRO_W1-Q2-NO.txt.
+10. The program will generate a file for each file header encountered.
+  - Ex: W1-Q2-01-It_Doesnt_Work.txt or another other W1-Q2-##-[Video_title].txt.
+11. If there are problems with the program, toggle the test constaints at the top of the program.  Including a staged testing scheme for programs in the past has been most crucial in my coding career when debugging the programs due to data errors.
 
 ```
 # this line is only used to pass text to checks
