@@ -1,11 +1,11 @@
 On branch main
-Your branch is up to date with 'origin/main'.
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
 
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)
 	modified:   current_update.txt
-	modified:   process_current_update.py
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
@@ -14,8 +14,6 @@ Untracked files:
 	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2/W2-Q3-03-Dealing_with_Complex_Slow_Systems.txt
 	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2/W2-Q3-04-More_About_Complex_Slow_Systems.txt
 	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2/W2-Q3-04-Using_Threads_to_Make_Things_Go_Faster.txt
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W3/
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W4/
 	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/contents_stats_simple.py
 	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/cp_thread.py
 	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/cpu_mp.py

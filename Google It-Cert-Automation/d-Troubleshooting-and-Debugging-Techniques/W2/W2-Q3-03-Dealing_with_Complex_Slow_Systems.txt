@@ -1,0 +1,7 @@
+[ web server is the part of the system that directly interacts with external users.]
+[database server, which is accessed by the code that handles any requests generated from the website, and depending on how the whole system is built, you might have a bunch of other services involved doing different parts of the work.]
+[billing system that generates invoices once orders are placed.]
+[fulfillment system used by the employees preparing the orders for customers.]
+[reporting system that once a day creates a report of all the sales placed and possibly more.]
+[backup, monitoring, testing infrastructure, and so on.]
+[As usual, what you want to do is find the bottleneck that's causing your infrastructure to underperform. Is it the generation of dynamic pages on the web server? Is it the queries to the database? Is it doing the calculations for the fulfillment process?]
