@@ -1,0 +1,7 @@
+[Generally, the cause of these crashes is that the software ran into an unexpected situation, a state that the developers didn't anticipate.]
+[hardware problem, like a broken ramjet that causes a program to get invalid data when trying to access the memory.]
+[bug in some part of the code,]
+[read an element from an empty list.]
+[overall system,]
+[program expects a certain library to be present or a certain directory to exist, but they don't or there could be a problem with the input provided by the user.]
+[Instead of knowing all of them, we need to learn to reduce the scope of the problem so that we can get to the bottom of it.]

@@ -1,0 +1,5 @@
+[There it is, the server responded with a 500 error. This error usually means that something on the server side of the application crashed, but we have no idea what.]
+[the date command to check the current date.]
+[the Web server is running on port 80, the default web serving port.]
+[which software is listening on port 80?]
+[uwsgi_pass 127.0.0.1:3031:]

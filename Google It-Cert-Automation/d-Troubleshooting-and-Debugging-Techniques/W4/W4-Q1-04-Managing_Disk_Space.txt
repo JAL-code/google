@@ -1,0 +1,7 @@
+[Programs may need disk space for lots of different reasons. Installed binaries and libraries, data stored by the applications, cached information, logs, temporary files or even backups.]
+[But it's also possible that programs are misusing the space allotted to them, like by keeping temporary files or caching information that doesn't get cleaned up quickly enough or at all.]
+[If it's a user machine, it might be easily fixed by uninstalling applications that aren't used, or cleaning up old data that isn't needed anymore.]
+[a server,]
+[Is the issue that you need to add an extra drive to the server to have more available space, or is it that some application is misbehaving and filling the disk with useless data?]
+[To figure this out, you want to look at how the space is being used and what directories are taking up the most space, then drill down until you find out whether large chunks of space are taken by valid information or by files that should be perched.]
+[In other cases, the disk might get full due to a program generating large temporary files, and then failing to clean those up.]

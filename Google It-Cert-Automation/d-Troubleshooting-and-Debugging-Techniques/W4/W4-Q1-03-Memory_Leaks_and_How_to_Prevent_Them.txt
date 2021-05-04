@@ -1,0 +1,7 @@
+[A memory leak, happens when a chunk of memory that's no longer needed is not released.]
+[First, they request the necessary memory when we create variables, and then they run a tool called Garbage collector, that's in charge of freeing the memory that's no longer in use. To detect when that's the case, the garbage collector looks at the variables in use and the memory assigned to them and then checks if there any portions of the memory that aren't being referenced by any variables.]
+[In other words, even when the language takes care of requesting and releasing the memory for us, we could still see the same effects of a memory leak.]
+[Even worse than these, are memory leaks caused by a device driver, or the OS itself.]
+[full restart of the system releases the memory.]
+[We can use a memory profiler to figure out how the memory is being used.]
+[For profiling C and C plus plus programs, we'll use Valgrind which we mentioned in an earlier video.]

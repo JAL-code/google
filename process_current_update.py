@@ -48,7 +48,7 @@ def check_modified(lines):
 # Look for rm files
 def check_deleted(lines):
     print("Running deleted.")
-    pattern = r"Changes not staged for commit:"
+    pattern = r"New file not staged for commit:"
     limit_pattern = r"deleted:    "
     line_Count, ch_mod = find_start(lines, pattern)
     print(f"{line_Count}: {ch_mod}")

@@ -1,0 +1,8 @@
+sudo apt install python-pip
+pip install matplotlib
+
+pip3 install setuptools==49.3.0
+
+export SETUPTOOLS_USE_DISTUTILS=stdlib
+
+sudo apt-get update

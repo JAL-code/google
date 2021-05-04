@@ -1,0 +1,5 @@
+[Writing good comments is one of those good habits that pays off when trying to understand code written by others and also your past self.]
+[If you contribute those comments back to the original developers, you can help anybody else trying to understand the code.]
+[writing some tests of your own can help you better see what the code is supposed to do and improve overall quality of the code.]
+[You'll need to focus on the functions or modules that are part of the problem that you're trying to fix.]
+[One possible approach in this case, would be to start with the function where the error happened, then the function or functions that call it, and so on until you can grasp the contexts that led to the problem.]

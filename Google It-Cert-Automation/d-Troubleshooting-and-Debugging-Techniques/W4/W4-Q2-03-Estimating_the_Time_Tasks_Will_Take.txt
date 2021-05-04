@@ -1,0 +1,7 @@
+[The best way to do this is to compare the task that you're trying to do with similar tasks that you've done before.]
+[Split the task into smaller steps.]
+[If one smaller step is still too large, then split it into even smaller pieces until you can compare each piece of the puzzle was something that you've done before.]
+[Once you've got all those estimated times, just add them up and you'll have a rough estimate of how long the whole task will take.]
+[you want to factor in some extra time for integration.]
+[Even if you're prepared for something to go wrong, it's impossible to anticipate new unknown bumps in the road, so take this estimation and multiply it by a factor.]
+[So if the last time you did this exercise, it took you three times longer to complete the task than you'd planned, go ahead and multiply your estimation by three.]

@@ -1,0 +1,8 @@
+[Postmortems are documents that describe details of incidence to help us learn from our mistakes.]
+[to learn from what happened to prevent the same issue from happening again.]
+[what happened, why it happened, how it was diagnosed, how it was fixed, and finally figure out what we can do to avoid the same event happening in the future.]
+[main goal is to learn from our mistakes.]
+[What you can learn from the problem and how you can prevent it in the future.]
+[summary that highlights the root cause, the impact, and what needs to be done to prevent the issue from happening again.]
+[that we were able to solve the problem quickly by doing a roll back to the previous version or that we caught the issue before users even noticed it because we had good monitoring and alerting.]
+[Noting the things that went well helps us show that our systems are effective and justifies keeping those systems running.]
