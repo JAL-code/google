@@ -1,0 +1,31 @@
+[Activity Monitor in Mac:]
+Check out the following links for more information:
+
+    [https://docs.microsoft.com/en-us/sysinternals/downloads/procmon]
+    [Process Monitor v3.61 - More advanced Win 10]
+    [http://www.brendangregg.com/linuxperf.html]
+    [https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55]
+    [uptime
+     dmesg | tail
+     vmstat 1
+     mpstat -P ALL 1
+     pidstat 1
+     iostat -xz 1
+     free -m
+     sar -n DEV 1
+     sar -n TCP, ETCP 1
+    top]
+    [http://brendangregg.com/usemethod.html]
+    [Activity Monitor in Mac:]
+    [Performance Monitor on Windows]
+    [https://www.digitalcitizen.life/how-use-resource-monitor-windows-7]
+    [https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer]
+    [https://en.wikipedia.org/wiki/Cache_(computing)]
+    [https://www.reddit.com/r/linux/comments/d7hx2c/why_nice_levels_are_a_placebo_and_have_been_for_a/]
+    [    Soft-disable autogroups using the noautogroups boot parameter or by writing "0" to proc/sys/kernel/sched_autogroup_enabled;]
+
+    [Hard-disable autogroups by custom-building a kernel with CONFIG_SCHED_AUTOGROUP=N;]
+
+    [Start using the autogroup nice level at proc/<pid>/autogroup instead of the regular nice level. There seems to be no standard command for this, though I've jerry-rigged a crude solution]
+
+    [The nuclear option of using chrt -f to bypass autogroups using SCHED_FIFO for something you don't want to have cpu time stolen from by lower-priority processes. Of course this only works on interactive processes as opposed to batch ones, or else your system could hang. While it's a clumsy solution, notably this is an option that someone who isn't aware of autogroups might still come up with on their own.]
