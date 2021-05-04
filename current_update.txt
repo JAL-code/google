@@ -1,0 +1,18 @@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2-Q1-01-Intro_to_Module_2_Slowness.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2-Q1-03-How_Computers_Use_Resources.txt
+	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2-Q1-04-Possible_Causes_of_Slowness.txt
+	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2-Q1-05-Slow_Web_Server.txt
+	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2-Q1-06-Monitoring_Tools.txt
+	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2-Q2-NO.txt
+	current_update.txt
+	process_current_update.py
+	push_update.sh
+
