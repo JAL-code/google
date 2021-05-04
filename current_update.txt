@@ -2,15 +2,30 @@ On branch main
 Your branch is up to date with 'origin/main'.
 
 Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
+  (use "git add/rm <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)
+	deleted:    Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W1-Q2-05-Intermittently_Failing_Script_calender_example_terminal_input.txt
+	deleted:    Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W1-Q3-NO.txt
+	deleted:    Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W1-Q3-V4-Finding_Invalid_Data.txt
+	deleted:    Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W1-Q4-SO.txt
+	deleted:    Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W1_Q1_L3-Debugging.txt
+	deleted:    Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W1_Q1_L4-Problem_Solving_Steps.txt
+	deleted:    Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W1_Q1_L5-Silently_Crashing_Application.txt
+	deleted:    Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2-Q1-01-Intro_to_Module_2_Slowness.txt
+	deleted:    Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2-Q1-03-How_Computers_Use_Resources.txt
+	deleted:    Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2-Q1-04-Possible_Causes_of_Slowness.txt
+	deleted:    Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2-Q1-05-Slow_Web_Server.txt
+	deleted:    Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2-Q1-06-Monitoring_Tools.txt
+	deleted:    Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/meeting_reminder.sh
+	deleted:    Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/meeting_reminder_start.sh
+	deleted:    Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/send_reminders.py
+	deleted:    Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/send_reminders_start.py
 	modified:   current_update.txt
+	modified:   process_current_update.py
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2-Q1-03-How_Computers_Use_Resources.txt
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2-Q1-04-Possible_Causes_of_Slowness.txt
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2-Q1-05-Slow_Web_Server.txt
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2-Q1-06-Monitoring_Tools.txt
+	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W1/
+	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2/
 
 no changes added to commit (use "git add" and/or "git commit -a")

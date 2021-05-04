@@ -12,6 +12,7 @@ import sys
 txt_file_location = sys.argv[1]
 modified = []
 add = []
+deleted = []
 
 # Find the line indicating change must be updated to the repo.
 def find_start(lines, pattern):
@@ -34,6 +35,7 @@ def check_modified(lines):
     pattern = r"Changes not staged for commit:"
     limit_pattern = r"modified:   "
     line_Count, ch_mod = find_start(lines, pattern)
+    print(f"{line_Count}: {ch_mod}")    
 
     for line in lines[line_Count+1:]:
         if re.search("^[A-Z]", line):
@@ -41,6 +43,22 @@ def check_modified(lines):
         else:
             if re.search(r"^\t", line):
                 modified.append(re.sub(limit_pattern, '', re.sub(r"\t",'', line)))
+    return ch_mod
+
+# Look for rm files
+def check_deleted(lines):
+    print("Running deleted.")
+    pattern = r"Changes not staged for commit:"
+    limit_pattern = r"deleted:    "
+    line_Count, ch_mod = find_start(lines, pattern)
+    print(f"{line_Count}: {ch_mod}")
+
+    for line in lines[line_Count+1:]:
+        if re.search("^[A-Z]", line):
+            break
+        else:
+            if re.search(r"^\t", line):
+                deleted.append(re.sub(limit_pattern, '', re.sub(r"\t",'', line)))
     return ch_mod
 
 # Look for new files
@@ -88,7 +106,9 @@ def main(txt_file_location):
     checks = [
         (check_modified, "Modified Files found"),
         (check_first_add, "Found files to be added"),
+        (check_deleted, "Found items to delete")
     ]
+    
 
     # Run the checks
     everything_ok = True
@@ -97,15 +117,26 @@ def main(txt_file_location):
             print(msg)
             everything_ok = False
 
+    print("\nProcessed checks")
+    print("\nModified")
+    print(modified)
+    print("\nAdd")
+    print(add)
+    print("\nDeleted")
+    print(deleted)
+
     # Print out the results
     if not everything_ok:
         print("Work to be done!")
         if modified:
-            #print(f"These were modified: {modified}")
+            print(f"These were modified: {modified}")
             print(create_command('add', modified))
         if add:
-            #print(f"These are new files: {add}")
+            print(f"These are new files: {add}")
             print(create_command('add', add))
+        if deleted:
+            print(f"These are new files: {deleted}")
+            print(create_command('rm', deleted))
     else:
         print("No GitHub updates to be pushed")
 
