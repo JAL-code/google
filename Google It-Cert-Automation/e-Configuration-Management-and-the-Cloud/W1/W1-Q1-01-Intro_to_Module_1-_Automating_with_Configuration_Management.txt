@@ -1,0 +1,1 @@
+[like what we mean when we talk about scale and how we can use configuration management to maintain the computers in our fleet, and how we can all benefit from treating our infrastructure as code.]
