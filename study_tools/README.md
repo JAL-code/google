@@ -18,19 +18,21 @@ How to guide:
   - W1-Q2-01 (for week1 quiz2 section and item 1 in list of videos/readings)
   - Ex., The sectionw will be saved as:  W1-Q2-01-It_Doesnt_Work.txt
 4. Enter the following: [* Caption:"Video Title":"order of item in list" *] to create your file header.
-  - Ex: [*Caption:"It Doesn't Work":01*]
+  - Ex: [ * Caption : "It Doesn't Work" : 01 * ]
   - No spaces at 'colons' and '[*', '*]'
 5. Review the text as you watch the video. 
   - Bracket any text you want to save. 
   - Brackets can be independent for each line.  THe code will join the lines until a bracket pair is created.
   - Try for only one bracket per line or several lines.
 6. Repeat steps 1-5 for all videos: See W1-Q2-NO.txt as example input.
-7. Create a file named access.py with the folder for your notes.  This file will store your folder for the macro
-8. Tip: The program can be modified to output the a text file with only the headers and highlights.
+7. Create a file named access.py with the folder for your notes.  This file will store your folder for the macro. See line bound by VVVV at top and ^^^ at bottom.
+9. Tip: The program can be modified to output the a text file with only the headers and highlights.
   - See PRO_W1-Q2-NO.txt.
 10. The program will generate a file for each file header encountered.
   - Ex: W1-Q2-01-It_Doesnt_Work.txt or another other W1-Q2-##-[Video_title].txt.
 11. If there are problems with the program, toggle the test constaints at the top of the program.  Including a staged testing scheme for programs in the past has been most crucial in my coding career when debugging the programs due to data errors.
+12. End the file wiht the following header (again no spaces except at the title).
+  - [ * Caption : "The End" : 07 * ]
 
 ```
 # this line is only used to pass text to checks
