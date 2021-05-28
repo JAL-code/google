@@ -43,6 +43,8 @@ STAGE_FOUR_TEST = False     # View the headers found
 STAGE_FIVE_TEST = False     # Check range of highlights verses orginal file
 STAGE_SIX_TEST = True       # Toggle the printing of files to directory.
 ```
+Sample access script:
+
 ```
 #!/usr/bin/env python3
 
@@ -51,4 +53,28 @@ def get_location_for_code():
     # access_area = 'files_and_exceptions/'
     access_area = '/home/<user>/<folder>/'
     return access_area
+```
+Note: run a profile of the program with pprofile3 and kcachegrind.  The file can be any name with a out extension. (.out):
+```
+$ pprofile3 -f callgrind -o profile_ch_2155_1.out python3 ./class_highlights_list_lines.py
+```
+View the output:
+```
+kcachegrind profile_ch_2155_1.out
+```
+For setup and Terminal example from class:
+```
+
+ 1788  sudo apt-get update
+ 1789  sudo apt-get upgrade
+ 1790  sudo apt autoremove
+ 1791  sudo apt install python3-pprofile
+ 1792  pprofile3 -f callgrind -o profile.out python3 ./send_reminders.py "2020-01-13|Example|tests1,test2,test3,test4,test5,test6,test6,test8,test9"
+ 1793  pprofile3 -f callgrind -o profile.out ./send_reminders.py "2020-01-13|Example|tests1,test2,test3,test4,test5,test6,test6,test8,test9"
+ 1794  kcachegrind profile.out
+ 1795  sudo apt install kcachegrind
+ 1796  kcachegrind profile.out
+ 1797  pprofile3 -f callgrind -o profile.out ./send_reminders.py "2021-01-13|Example|test1,test2,test3,test4,test5,test6,test6,test8,test9"
+ 1798  kcachegrind profile.out
+
 ```
