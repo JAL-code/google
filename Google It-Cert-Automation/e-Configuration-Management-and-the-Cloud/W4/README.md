@@ -1,4 +1,4 @@
-Storing Data in the Cloud
++Storing Data in the Cloud
 
 Two types of storage: 
 
@@ -47,3 +47,92 @@ Choosing the storage class to use, you might come across terms like hot and cold
 choose to keep the last one year of data in hot storage.
 
     After a year, you can move your data to cold storage where you can still get to it, but it will be slower and possibly costs more to access.
+    
++Load Balancing
+
+To handle loads:
+
+Get more than one machine or container running our service.
+To horizontally scale our service to handle more work, distribute instances geographically to get closer to our users.
+Backup instances to keep the service running if one or more of the other instances fail.
+Use orchestration tools and techniques to make sure that the instances are repeatable.
+With our replicated machines, we'll want to distribute the requests across instances.
+
+What is load balancing? 
+
+Look at a round robin DNS.  Round robin is a really common method for distributing tasks. Like handing out cookies the party.  Every user gets one cookie.  Then the server gives everyone a second serving 
+until all of the treats are gone.
+
+To translate a URL like my service.example.com into an IP address, we use the DNS protocol or domain name system.  Just like the example above, Clients are served in turn.
+The URL always gets translated into exactly the same IP address.  For a DNS to use round robin, it'll give each client asking for the translation a group of IP addresses in a different order.
+The clients will then pick one of the addresses.  If an attempt fails, the client will jump to another address.
+
+First, you can't control which addresses get picked by the clients.  And you can't stop the clients from reaching out to your service.
+
+DNS records are cached by the clients and other servers.  Change the list of addresses for the instances, you'll have to wait until all of the DNS records that were cached by the clients expire.
+
+We can set up a server as a dedicated load balancer.  The machine that acts as a proxy between the clients and the servers.  It directs them to the selected back-end server.
+
+Say your service needs to keep track of the actions that a user has taken up till now. In this case, you'll want your load balancer to use sticky sessions.
+Using sticky sessions means all requests from the same client always go to the same back end server.
+
+Load balancers are great because you can configure them to check the health of the backend servers. If a back-end server is unhealthy, the load balancer will stop sending new requests to it to keep only healthy servers in the pool.
+
+Cool feature of cloud infrastructure is how easily we can add or remove machines from a pool of servers providing a service.  Adding a new machine to the pool is as easy as creating the instance. And then letting the load balancer know that it can now route traffic to it.
+manually creating and adding the instance or when our services under heavy load, we can just let the auto scaling feature do it.
+
+How to make sure that clients connect to the servers that are closest to them?
+
+Geo DNS and GeoIP.
+
+Most Cloud providers offer it as part of their services making it much easier to have a geographically distributed service.  There are some providers dedicated to bringing the contents of your services as close to the user as possible. These are the content delivery networks or CDNs.
+network of physical hosts that are geographically located as close to the end user as possible.  Often in the same data center as the users Internet service provider.  Caching content super close to the user.
+
+Video's are stored in the closest CDN server. That way, when a second user in the same region requests the same video, it's already cached in a server that's pretty close and it can be downloaded extra fast.
+
++Change Management
+
+Change management: How to keep the service running and make changes in a controlled and safe ways.  Lets us keep innovating while our services keep running.
+
+Step one in improving the safety of our changes, we have to make sure they're well-tested.
+Running unit tests and integration tests, and then running these tests whenever there's a change.
+
+CI means the software is built, uploaded and tested constantly.
+Continuous integration, or CI, A continuous integration system will build and test our code every time there's a change.
+Service runs even for changes that are being reviewed.  This in necessary before they're merged into the main branch.
+open source CI system like Jenkins, or if you use GitHub, you can use its Travis CI integration.
+
+Now you can use continuous deployment, or CD, to automatically deploy the results of the build or build artifacts.
+Continuous deployment lets you control the deployment with rules.
+    
+    configure our CD system to deploy new builds only when all of the tests have passed successfully.
+
+    configure our CD to push to different environments based on some rules.
+
+The service should have a test environment separate from the production environment.  Validate that changes work correctly before they affect users.
+
+Environment means everything needed to run the service.  
+
+    the machines and networks used for running the service
+    the deployed code
+    the configuration management
+    the application configurations
+    the customer data
+
+Production, usually shortened to prod, is the real environment, the ones users see and interact with.
+
+The test environment needs to be similar enough to prod that we can use them to check our changes work correctly. You could have your CD system configured to push new changes to the test environment.
+Check that the service is still working correctly there, and then manually tell your deployment system to push those same changes to production.
+
+For example, you might have your CD system push all new changes to a development or dev environment, then have a separate environment called pre-prod, which only gets specific changes after approval.
+And only after a thorough testing, these changes get pushed to pro.  You want to deploy it to one of those testing or development environments to make sure it works correctly before you ship it to prod.
+These environments need to be as similar to prod as possible, built and deployed in the same way.
+
+In A/B testing, some requests are served using one set of code and configuration, A, and other requests are served using a different set of of code and configuration, B.
+
+Deploy one instance group in your A configuration and a second instance group in your B configuration. Then by changing the configuration of the load balancer, you can direct different percentages of inbound requests to those two configurations.  Add basic monitoring, to compare A or B performances.  Becareful though, the value of A/B testing can be lost to A/B debugging.
+
+Remember what we discussed in an earlier course about post-mortems. We learn from failure and we build the new knowledge into our change management.
+
+Can I have one of my change management systems look for problems like that in the future? 
+Can I add a test or a rule to my unit tests, my CI/CD system, or my service health checks to prevent this kind of failure in the future?
