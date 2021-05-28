@@ -1,0 +1,6 @@
+[Puppet agent connected to the Puppet master]
+[CTL command,]
+[control the services that are enabled when the machine starts and those that are currently running.]
+[tell the system CTL to enable the puppet service so that the agent gets started whenever the machine reboots,]
+[then we'll tell system CTL to start the puppet service so that it starts running.]
+[Last step, we'll ask systems CTL for the status of the Puppet service to check that it's actually running.]

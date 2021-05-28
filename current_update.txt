@@ -1,6 +1,5 @@
 On branch main
-Your branch is ahead of 'origin/main' by 1 commit.
-  (use "git push" to publish your local commits)
+Your branch is up to date with 'origin/main'.
 
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
@@ -9,30 +8,24 @@ Changes not staged for commit:
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2/W2-Q3-01-Parallelizing_Operation.txt
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2/W2-Q3-02-Slowly_Growing_in_Complexity.txt
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2/W2-Q3-03-Dealing_with_Complex_Slow_Systems.txt
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2/W2-Q3-04-More_About_Complex_Slow_Systems.txt
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/W2/W2-Q3-04-Using_Threads_to_Make_Things_Go_Faster.txt
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/contents_stats_simple.py
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/cp_thread.py
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/cpu_mp.py
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/cpu_synco.py
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/get_employees_by_date.py
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/io_asyncio.py
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/io_synchronous.py
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/io_synchronous_threaded.py
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/io_synchronous_threaded_racing.py
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/meeting_reminder.sh
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/meeting_reminder_start.sh
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/mp_example.py
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/pi_string.py
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/process_thumbnails.py
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/profile.out
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/send_reminders.py
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/send_reminders_csv.py
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/send_reminders_csv_improve_loop.py
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/send_reminders_start.py
-	Google It-Cert-Automation/d-Troubleshooting-and-Debugging-Techniques/send_reminders_working.py
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/W1-F1
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/W1-Q2-01-What_is_Puppet_.txt
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/W1-Q2-02-Puppet_Resources.txt
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/W1-Q2-03-Puppet_Classes.txt
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/W1-Q2-04-Puppet_Resources_2.txt
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/W1-Q2-N0.txt
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/W1-Q3-02-The_Driving_Principles_of_Configuration_Management.txt
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/W1-Q3-N0.txt
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/example_w1_q2_01.pp
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/example_w1_q2_02_01.pp
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/example_w1_q2_02_02.pp
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/example_w1_q2_03_01.pp
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/example_w1_q3_01_01.pp
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/example_w1_q3_03_01.pp
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/example_w1_q3_03_02.pp
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/test_ notes.odt
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W2/
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W3/
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W4/
 
 no changes added to commit (use "git add" and/or "git commit -a")

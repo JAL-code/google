@@ -1,0 +1,16 @@
+(Missing- Info: Loading facts)
+(deleted Ruby errors)
+Notice: Compiled catalog for (lists your internet location/service provider) in environment production in 0.23 seconds
+(deleted Ruby errors)
+Info: Applying configuration version '1620833412'  (green text)
+(deleted Ruby errors)
+Info: Computing checksum on file /etc/ntp.conf  (green text)
+(deleted Ruby error)
+Info: /Stage[main]/Ntp/File[/etc/ntp.conf]: Filebucketed /etc/ntp.conf to puppet with sum 10552d6aaf319d27890203e4c378c58b  (green text)
+(deleted Ruby errors)
+Notice: /Stage[main]/Ntp/File[/etc/ntp.conf]/content: content changed '{md5}10552d6aaf319d27890203e4c378c58b' to '{md5}eebe6ebe5022eb1b93841d527e3195df'
+Info: /Stage[main]/Ntp/File[/etc/ntp.conf]: Scheduling refresh of Service[ntp]  (green text)
+Notice: /Stage[main]/Ntp/Service[ntp]: Triggered 'refresh' from 1 event
+(deleted Ruby error)
+Notice: Applied catalog in 0.33 seconds
+(deleted Ruby errors)

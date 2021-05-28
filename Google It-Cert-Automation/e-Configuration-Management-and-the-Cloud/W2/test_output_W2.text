@@ -1,0 +1,90 @@
+@puppet
+chmod 600 ~/Downloads/qwikLABS<xxxx>.pem
+ssh -i ~/Downloads/qwikLABS<xxxx>.pem <student>@<puppet id>
+    1  cd /etc/puppet/code/environments/production/modules/packages
+    2  cat manifests/init.pp
+    3  sudo chmod 646 manifests/init.pp
+    4  nano manifest/init.pp
+    5  ls
+    6  cd manifests
+    7  ls
+    8  nano init.pp
+   10  gcloud compute instances describe linux-instance --zone=us-central1-a --format='get(networkInterfaces[0].accessConfigs[0].natIP)'  => <linux-instance>
+   11  cd /etc/puppet/code/environments/production/modules/machine_info
+   12  cat manifests/init.pp
+   13  sudo chmod 646 manifests/init.pp
+   14  ls
+   15  cd manifests
+   16  ls
+   17  nano init.pp
+   18  cd \
+   19  cd /etc/puppet/code/environments/production/modules/machine_info
+   20  cat templates/info.erb
+   21  sudo chmod 646 templates/info.erb
+   22  nano ./templates/info.erb
+   23  sudo mkdir -p /etc/puppet/code/environments/production/modules/reboot/manifests
+   24  cd /etc/puppet/code/environments/production/modules/reboot/manifests
+   25  sudo touch init.pp
+   26  sudo nano init.pp
+   27  ls
+   28  sudo nano /etc/puppet/code/environments/production/manifests/site.pp 
+   29  history
+
+@puppet
+chmod 600 ~/Downloads/qwikLABS<xxxx>.pem
+ssh -i ~/Downloads/qwikLABS<xxxx>.pem <student>@<linux-instance>
+
+    1  sudo puppet agent -v --test
+    2  apt policy golang
+    4  sudo puppet agent -v --test
+    5  cat /tmp/machine_info.txt
+    6  sudo puppet agent -v --test
+
+site.pp
+node default {
+  class { 'packages': }
+  class { 'machine_info': }
+  class { 'reboot': }
+}
+
+cat ./manifests/init.pp
+class machine_info {
+  if $facts[kernel] == "windows" {
+    $info_path = "C:\Windows\Temp\Machine_Info.txt"
+  } else {
+    $info_path = "/tmp/machine_info.txt"
+  }
+  file { "machine_info":
+    path    => $info_path,
+    content => template("machine_info/info.erb"),
+  }
+}
+
+cat info.erb
+Machine Information
+-------------------
+Disks: <%= @disks %>
+Memory: <%= @memory %>
+Processors: <%= @processors %>
+Network Interfaces: <%= @interfaces %>
+}
+
+cat manifests/init.pp
+class packages {
+  package { 'python-requests':
+    ensure => installed,
+  }
+  if $facts[os][family] == 'Debian' {
+    package { 'golang':
+      ensure => installed,
+    }
+  }
+  if $facts[os][family] == 'RedHat' {
+    package { 'nodejs':
+      ensure => installed,
+    }
+  }
+}
+
+
+

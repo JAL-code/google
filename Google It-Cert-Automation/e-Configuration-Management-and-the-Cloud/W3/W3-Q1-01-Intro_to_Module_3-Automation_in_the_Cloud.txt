@@ -1,0 +1,5 @@
+[Qwiklabs is one of the many services today that are powered by the cloud.]
+[recap of some cloud related concepts to make sure we're all on the same page.]
+[check out how cloud deployments can help us quickly scale our services.]
+[we'll cover some things that might be different when running IT infrastructure *on-premise versus running it in the cloud.]
+[deploy a bunch of web servers running in the cloud.]

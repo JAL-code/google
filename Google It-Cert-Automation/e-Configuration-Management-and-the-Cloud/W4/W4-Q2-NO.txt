@@ -1,0 +1,787 @@
+[*Caption:"Getting Started with Monitoring":01*]
+
+As we called out in an earlier video,
+once we have our service running in the Cloud,
+we want to make sure that our service keeps running,
+and not just that,
+we want to make sure it keeps behaving as expected,
+returning the right results quickly and reliably.
+[The key to ensuring all of this,
+is to set up good monitoring and alerting rules.]
+In the next few videos,
+we'll do a rundown of monitoring and
+alerting concepts and techniques,
+followed by a practical demonstration. Let's dive in.
+To understand how our service is performing,
+we need to monitor it.
+[Monitoring lets us look into
+the history and current status of a system.]
+How can we know what the status is?
+We'll check out a bunch of different metrics.
+[These metrics tell us if the service is
+behaving as expected or not.]
+Well, some metrics are generic,
+like how much memory an instance is using.
+Other metrics are specific
+to the service we want to monitor.
+Say your company is running a website
+and you want to check if it's working correctly.
+[When a web server responds to an HTTP request,
+it starts by sending a response code,
+followed by the content of the response.]
+You might know, for example,
+that a [404 code means that the page wasn't found,
+or that a 500 response means
+that there was an internal server error.]
+In general, respons[e codes in the 500 range,
+like 501 or 503,
+tells us that something bad happened on
+the server while generating a response.]
+Well, response codes in the [400 range
+means there was a client-side problem in the request.]
+When monitoring your web service,
+you want to [check both the count of response codes
+and their types to know if everything's okay.]
+If you're running an [e-commerce site,
+you'll care about how many purchases were made
+successfully and how many failed to complete.]
+If you're [running a mail server,
+you want to know how many emails were sent
+and how many got stuck and so on.]
+You'll need to think about the service you want to
+monitor and figure out the metrics you'll need.
+Now, once we've decided what metrics
+we care about, what do we do with them?
+[We'll typically store them in the monitoring system.]
+There's a bunch of different
+monitoring systems out there.
+[Some systems like AWS Cloudwatch,
+Google Stack Driver, or
+Azure Metrics are offered
+directly by the Cloud providers.]
+Other systems like [Prometheus, Datadog,
+or Nagios can be used across vendors.]
+There's [two ways of getting
+our metrics] into the monitoring system.
+Some systems use a [pull model,
+which means that the monitoring infrastructure
+periodically queries our service to get the metrics.]
+Other monitoring systems use a [push model,
+which means that our service needs to
+periodically connect to the system to send the metrics.]
+No matter how we get the metrics into the system,
+we can create dashboards based on the collected data.
+[This dashboard show the progression
+of the metrics over time.]
+We can look at the history of
+one specific metric to compare
+the current state to how it was last week or last month.
+Or we can look at the [progression of two or more metrics
+together to check out how the change
+in one metrics effects another.]
+Imagine it's Monday morning
+and you notice that your service
+is receiving a lot [less traffic than usual.]
+You can look at the data from
+past weeks and see if you always get less traffic on
+Monday mornings or if there's something
+broken causing your service to be unresponsive.
+[Or if you see that in the past couple days,
+the memory used by your instances has been going up,
+you can check if this growth follows
+a similar increase in another metric,
+like the amount of requests
+received or the amount of data being transmitted.]
+This can help you decide if there's
+been [a memory leak that needs to be
+fixed or if it's
+just an expected consequences of a growth in popularity.]
+[Pro tip, you only want to
+store the metrics that you care about,
+since storing all of these metrics
+in the system takes space,
+and storage space costs money.]
+When we collect metrics from inside a system,
+like how much storage space the service is currently
+using or how long it takes to process a request,
+this is called whitebox monitoring.
+[Whitebox monitoring checks the behavior
+of the system from the inside.]
+We know the information we want to track,
+and we're in charge of making it possible to track.
+[For example, if we want to track
+how many queries we're making to the database,
+we might need to add a variable to count this.]
+On the flip side, [blackbox monitoring
+checks the behavior of the system from the outside.]
+This is typically done by making
+a request to the service and then checking
+that the actual response matches the expected response.
+We can use this to do a [very simple check
+to know if the service is up
+and to verify if the service is
+responding from outside your network.]
+Or we could use it to see [how long it takes for a client
+in a different part of the world to get
+a response from the system.]
+Okay, monitoring is really cool,
+but who wants to stare at dashboards all
+day trying to figure out if something's wrong?
+Fortunately, we don't have to.
+Instead, [we can set up alerting
+rules to let us know if something's wrong.]
+This is a critical part of ensuring a reliable system,
+and we're going to learn how to do it in the next video. 
+
+[*Caption:"Getting Started with Monitoring":02*]
+
+We expect a lot from our modern IT services.
+We expect them to be up and running 24-7.
+We want to be able to get our work
+done whenever and wherever.
+For that, we need our services to respond
+day or night, workday or holiday.
+But even if the services are running 24-7,
+System Administrators can't constantly
+be in front of their systems.
+[Instead, we set up our services so that they work
+unattended and deal with problems when they happen.]
+Now to do this, we [need to detect
+those problems so that we can deal
+with them as quickly as possible.]
+If you have no automated way of raising an alert,
+you might only find out
+about the issue when you get a call from
+a frustrated user telling you that your service is down.
+That's not ideal.
+It's [much better to create
+automation that checks the health of
+your system and notifies you
+when things don't behave as expected.]
+This can give you advance warning that something's wrong,
+sometimes even before users notice a problem at all.
+So how do we do that?
+[The most basic approach is to
+run a job periodically that checks
+the health of the system and sends
+out an email if the system isn't healthy.]
+On a [Linux system,
+we could do this using cron,
+which is the tool to schedule periodic jobs.
+We'd pair this with
+a simple Python script that checks
+the service and sends any necessary emails.]
+This is an extremely simplified version
+of an alerting system,
+but it shares the same principles.
+Is all alerting systems,
+no matter how complex and advanced.
+We want to [periodically check the state of
+the service and raise alerts if there's a problem.]
+When you use a monitoring system like
+the ones we described in our last video,
+[the metrics you collect
+represent the state of your service.]
+Instead of periodically running a script that
+connects to the service and checks if it's responding,
+[you can configure the system to
+periodically evaluate the metrics;
+and based on some conditions,
+decide if an alert should be raised.]
+[Raising an alert signals that something is
+broken and a human needs to respond.]
+For example, you can set up your system to raise alerts
+if the application is using
+[more than 10 gigabytes of RAM,]
+or if it's[ responding with too many 500 errors,]
+or if the [queue of requests
+waiting to get processed gets too long.]
+Of course, not all alerts are equally urgent.
+We typically divide useful alerts into two groups,
+those that [need immediate attention and
+those that need attention in the near future.]
+If an alert doesn't need attention,
+then it shouldn't have been sent at all. It's just noise.
+If your web service is responding with
+[errors to 50 percent of the requests,
+you should look at what's going on right away.
+Even if this means waking up in the middle of
+the night to address whatever is wrong,
+you'll definitely want to fix
+this kind of critical problem ASAP.]
+On the other hand, if the issue is that
+the [attached storage is 80 percent full,
+you need to figure out whether to increase
+the disk size or maybe clean up some of the stored data.]
+But this isn't super urgent,
+so don't let it get in the way of a good night's sleep.
+Since these two types of alerts are different,
+[we typically configure our systems
+to raise alerts in two different ways.]
+Those that [need immediate attention are called pages,
+which comes from a device called a pager.]
+Before mobile phones became popular,
+pagers were the device of choice
+for receiving urgent messages,
+and they're still used in some places around the world.
+[Nowadays, most people receive
+their pages in other forms like SMS,
+automated phone calls, emails,
+or through a mobile app,
+but we still call them pages.]
+On the flip side,
+the [non-urgent alerts are
+usually configured to create bugs
+or tickets for an IT specialist
+to take care of during their workday.]
+They can also be [configured to send
+email to specific mailing lists or
+send a message to a chat channel that will
+be seen by the people maintaining the service.]
+One thing to highlight is that
+[all alerts should be actionable.]
+If you get a bug or
+a page and [there's nothing for you to do,
+then the alert isn't actionable and it should
+be changed or it shouldn't be there at all.]
+Otherwise, [it's just noise.]
+Say you're trying to check if your services
+database back-end is responsive.
+If you do this by creating a query that
+returns all rows in a large table,
+your request might sometimes timeout and raise an alert.
+That would be a noisy alert, not really actionable.
+[You'd need to tweak the query to make the check useful.]
+Say you r[un a cron job that copies files from
+one location to another every 10 minutes,]
+you want to check that this job runs successfully.
+So you configure your system
+to alert you if the job fails.
+After [putting this in production,
+you realize there's a bunch of unimportant reasons
+that can cause this job to temporarily fail.]
+Maybe the destination storage is too
+busy and so sometimes the job times out.
+Maybe the origin was being
+rebooted right when the job started,
+so the job couldn't connect to it.
+No matter why, [whenever you go
+to check out what caused a job to fail,
+you discover that the following run had
+succeeded and there's nothing for you to do.]
+You need to rethink the problem and tweak your alert.
+Since [the task is running frequently,
+you don't care if it fails once or twice,
+you can change the system to only raise
+the alert if the job fails three times in a row.]
+That way when you get a bug,
+it means that it's failing consistently and
+you'll actually need to take action to fix it.
+[All of this configuring and
+tweaking can seem like a lot of work.]
+You need to think about which metrics you care about.
+Configure your monitoring system to store them,
+then configure your alerting system to
+raise alerts when things don't behave as expected.
+The [flip side is that once you've set
+your systems to raise actionable alerts when needed,
+you're going to have peace of mind.]
+If no alerts are firing,
+you know the service is working fine.
+[This lets you concentrate on
+other tasks without having to worry.]
+To set up good alerts,
+we need to figure out [which situations should page,
+which ones should create bugs,
+and which ones we just don't care about.]
+These decisions aren't always easy and
+might need some discussion with the rest of your team.
+But it can help make sure that you spend time
+only on things that actually matter.
+Up next, we'll talk about
+criteria that we can use to decide
+which situation should raise
+alerts and what to do about them. 
+
+[*Caption:"Service-Level Objectives":03*]
+
+We all know that some IT systems are more critical than others.
+Let's be real, if you try to play a computer game that you haven't
+opened in a year and it doesn't work, you probably won't care as much as if you're
+trying to make a bank transfer and your bank's website is down.
+[Sometimes a piece of infrastructure can be down and
+the overall system still works with degraded performance.]
+For example, if the [caching server that makes your web application go faster is
+down, the app can still function, even if it's running slower.]
+No system is ever available 100% of the time, it's just not possible.
+But depending on how critical the service is,
+it can have different service level objectives, or SLOs.
+[SLOs are pre-established performance goals for a specific service.]
+Setting these objectives helps manage the expectations of the service users,
+and the targets also guide the work of those responsible for
+keeping the service running.
+[SLOs need to be measurable, which means that there should be metrics that track
+how the service is performing and
+let you check if it's meeting the objectives or not.]
+Many SLOs are expressed as how much time a service will behave as expected.
+[For example, a service might promise to be available 99% of the time.]
+Heads up, when dealing with metrics and availability,
+we need to do a little math to understand what those numbers mean in practice, but
+don't worry, it's all pretty straightforward.
+[If our service has an SLO of 99% availability,
+it means it can be down up to 1 % of the time.]
+If we measure this over a year, the service can be down for
+a total of [3.65 during the year and still have 99% availability.]
+[Availability targets like this one are commonly named by their number of nines.]
+Our [99% example would be a two 9 service,]
+[99.9% availability is a three 9 service,]
+99.999% availability is a five 9 service.
+[Five nine services promised a total down time of up to five minutes in a year.]
+Five nines is [super high availability,
+reserved only for the most critical systems.]
+A [three nine service, aiming for a maximum of eight hours of downtime per year,
+is fine for a lot of IT systems.]
+Now, you might be wondering, why not just make everything a five nine service?
+It's a good question.
+The answer is, [because it's really expensive and usually not necessary.]
+If your service isn't super critical and it's okay for it to be down briefly once
+in a while having [two or three nines of availability might be enough.]
+You can keep the service running with a small team.
+[Five nine services usually require a much larger team of engineers to maintain it.]
+Any service can have a bunch of different service level objectives like these,
+they tell its users what to expect from it.
+[Some services, like those that we pay for, also have more strict
+promises in the form of service level agreements, or SLAs.]
+[A service level agreement is a commitment between a provider and a client.
+Breaking these promises might have serious consequences.]
+Service level objectives though are more like a [soft target, it's what
+the maintaining team aims for, but the target might be missed in some situations.]
+As we called out, [having explicit SLOs or SLAs is useful for
+both the users of that service and the team that keeps the service running.]
+[If you're using a cloud service, you can decide how much you're going to entrust
+your infrastructure to it, based on the SLAs that the provider publishes.]
+If on the other hand you're part of the team that [maintains the service, you can
+use the SLOs and SLAs of your service to decide which alerts to create and
+how urgent they should be.]
+Say you have a service with an SLO that says that
+at least [90% of the requests should return within 5 seconds.]
+To know if your service is behaving correctly, [you need to measure how many of
+the total requests are returning within those 5 seconds, and
+you want that number to always be above 90%.]
+So you might set up a [non-paging alert to notify you if less than 95% return
+within 5 seconds, and a paging alert if less than 90% return promptly.]
+If you're in charge of a website, you'll typically measure the rate of responses
+with 500 return codes to check if your service is behaving correctly.
+If your [SLO is 99% of successful requests, you can set up a non-paging
+alert if the rate of errors is above 0.5%, and a paging alert if it reaches 1%.]
+In an earlier video,
+we called out that services usually break because something changed.
+That's also often the case when looking at what makes services go out of SLO.
+If your service was working fine and meeting all of its SLOs and
+then started misbehaving, it's likely this was caused by a recent change.
+That's why some teams [use the concepts of error budgets to handle their services.]
+Say you're running a service that has three nines of availability.
+This means [the service can be down 43 minutes per month,
+this is your *error budget.]
+You [can tolerate up to 43 minutes of downtime,
+so you keep track of the total time the service was down during the month.]
+If it starts to get close to those 43 minutes,
+you might decide to stop pushing any new features and
+focus on resolving the problems that keep causing the downtime.
+Now, all this talk of nines, availability and downtime can have your head spinning
+if you've never done this before, and that's totally normal.
+If it's your first time setting objectives for
+your service, [start by setting achievable goals that you can measure.]
+Track how the service behaves for a while and
+see what causes the service to deviate from the targets.
+Once you have a better idea of the whole service's behavior,
+you can set more aggressive goals.
+Up next, we'll go back to our VMS running in the cloud and
+demonstrate how we can monitor them using the tools offered by the provider. 
+
+[*Caption:"Basic Monitoring in GCP":04*]
+
+So far, we've seen how to create
+virtual machines in the Google Cloud Console.
+We've kept these virtual machines
+running and now we want to see how we can use
+the tools provided by the cloud vendor to
+monitor them and create alerts based on them.
+[For this demonstration, we'll use
+the monitoring tool called Stackdriver,]
+which is part of the overall offering.
+When you first activate this system,
+it takes a while until it starts
+collecting on the metrics from all the machines,
+so we've activated in advance.
+When we first opened [the monitoring console,
+we see an overview of the system.]
+At the moment, this is looking pretty empty,
+but we could [configure this dashboard to show
+the charts that we consider the most useful.]
+Let's go into the instances dashboard,
+we see here the list of
+our instances and we can click on each of
+them to see that monitoring information
+that Stackdriver has collected about them.
+The monitoring system gives us a [very simple overview of
+each of the instances with three basic metrics,
+CPU usage, Disk I/O, and network traffic.]
+Depending on what surface we want to run on a VM,
+we can customize these dashboards
+to show different metrics.
+If the metrics that come baked in aren't enough,
+you can create your own metrics and also add them here.
+Now we want to check out how to set up an alert to
+notify us if something isn't behaving correctly.
+[To do this, we'll create a new alerting policy.]
+To set up a new alert,
+we have to [configure the condition
+that triggers the alert.]
+After we've done that,
+we can also [configure how we want to
+be notified of the issue and
+add any documentation that we
+want the notification to include.]
+Let's [start by configuring the condition.]
+As we called out, alerting conditions
+are related to specific metrics.
+We [want to be notified when the metric
+indicates that there's a problem with an instance.]
+For this example, we're going
+to configure [an alert that triggers if
+an instance in CPU utilization is more than 90 percent.]
+We'll start by [selecting that we want to
+monitor GCE, VM instances,
+which are the instances that we
+currently have running and
+then select the CPU utilization metric.]
+After selecting the metric,
+we see the graph of the collected values
+for all of the current running instances.
+We can optionally add
+extra filters and groups for the data for this condition.
+For example, [we could choose to
+only look at some of the instances,
+selecting by their zone, region, or name.]
+This can be useful if you want to have
+[separate alerts for instances used for production,
+and those used for testing or development.]
+On top of that, we can also
+[choose an aggregator for the data,
+these aggregators are useful
+when the metrics that you're collecting
+are about the overall system and not just one instance.]
+For example, if you're [checking the number of
+error responses that your system generated,
+you want to sum all the errors across instances.]
+Depending on how we filter group and aggregate the data,
+we'll end up with a bunch of different time series,
+we'll [use these values to decide
+if we should trigger the alert or not.]
+The [next step is selecting how many of
+the different time series need to violate
+the condition for the alert to trigger.]
+We can [trigger the alert when one, some,
+or all of the different time series
+violate the condition.]
+For this example, we'll [configure our alert to trigger if
+any instance is using more than 90 percent of the CPU.]
+So, let's select any time series violates.
+Now, we'll say that we want our [alert to trigger if
+the value is above 90 percent for one minute.]
+All right. We've set the condition.
+Now, we can [select how we want to get
+the notification and when the alert triggers.]
+Currently, the [only type of
+notification that we can use is e-mail.]
+To use the other channel types available,
+we need to configure them in our profile.
+For this example, [e-mail will do.]
+Using e-mails can be just fine
+when you're getting started with alerting,
+but eventually you'll want to configure
+additional methods. All right.
+We've configured our alert to send e-mails.
+Now, we can [add extra documentation to our alert.]
+This documentation is intended
+to help the person that's responding to
+the alert understand what
+they need to do to fix the problem.
+[Including good documentation here,
+it can be super-important when
+you've got a bunch of different people
+working together in a team and
+not everyone knows everything.]
+Alerts that include [good documentation
+are much easier to tend
+to and help get the service
+back to a healthy state faster.]
+For our example, we'll add
+a message saying that whoever
+is taking care of this alert,
+should check the instance with top.
+Finally, we'll need to [give
+a name to our alerting policy,
+we'll call it CPU and then save it.]
+Now, we've set up our alert.
+Now, we can sit back and
+relax knowing that if anything goes wrong,
+we'll be the first to know.
+[For the final part of this demo,
+we want to show what happens when the alert triggers.]
+To do that, we'll start a process in one of
+our instances that uses all of the available CPU,
+by creating an infinite loop.
+So we'll go back to the main console,
+SSH into the VM,
+called Linux- instance and then
+create a wire loop that never ends.
+
+[$ while true; do true; done &]
+
+Now, our loop is running and
+using all of the available CPU,
+we can check this by running the top command
+that shows us the CPU usage.
+We see that there's a bash command that's using
+almost 100 percent of the available CPU,
+our experiment is working.
+Now, remember that we said that we wanted
+the condition to be true for
+a minute before the alert triggers,
+it won't trigger just yet.
+It's common practice to use time windows of one,
+five, or even 10 minutes when dealing with the alerting.
+We don't want to get an alert for a small spike that
+lasted only a few seconds and then went away.
+We want to get alerted when there's
+an actual problem that requires our attention.
+The size of the time window we
+choose depends on the metric we're checking,
+the length of the expected spikes
+and a bunch of other factors.
+It's pretty normal to have to tweak how long we want
+the condition to be true as we try our alert out.
+If you're getting notified too
+often about conditions that
+go away on their own without you having to do anything,
+you might choose to make the time window larger.
+On the flip side, if you're getting notified too
+late about conditions that needed attention,
+you might choose to make
+the time window smaller. All right.
+We've let enough time pass,
+let's check out what's up with our alert.
+We see that there's an open incident,
+which is a way of grouping problems.
+The alerts summary gives us a bunch
+of info about what's going on.
+We can click on the CPU link to get more information.
+This page shows us the metric
+that triggered the alert for the incident,
+it shows the threshold for triggering
+the alert and the current value of the metric.
+It also shows us the documentation that
+we entered and lets us create annotations.
+We can use these annotations to track the work that
+we do during an incident. All right.
+[Let's stop the process that's using
+all of our instances CPU.]
+It's still running the [top process from before.
+Let's exit with Q.]
+Now, the infinite loop is currently
+running in the background of our console.
+We can make it run in the [foreground by typing fg,]
+and then cancel it by [pressing CTRL+C.]
+Now, we've stopped the process.
+Let's [check with top that it's no
+longer using all of our CPU.]
+Great, the bash process
+isn't taking all of the CPU time anymore.
+In another minute, the alert that we'd saw
+earlier will stop triggering, nice.
+With that, we've demonstrated how we can
+monitor a bunch of instances running in the Cloud.
+We've created an alert based on
+metrics and verify that the alert triggers.
+Of course, there's a lot more
+that we can do with these tools,
+we'll give you pointers to more information
+in the reading coming up.
+After that, there's another quick quiz
+to check that everything is making sense. 
+
+[*Caption:"More Information on Monitoring and Alerting":05*]
+
+Check out the following links for more information:
+
+    [https://www.datadoghq.com/blog/monitoring-101-collecting-data/]
+
+[Some data is most useful for identifying problems; some is primarily valuable for investigating problems]
+[having monitoring data is a necessary condition for observability into the inner workings of your systems]
+[which data to collect, and how to classify that data]
+
+[Collecting data is cheap, but not having it when you need it can be expensive, so you should instrument everything, and collect all the useful data you reasonably can.]
+[Metrics capture a value pertaining to your systems at a specific point in time ]
+[or example, the number of users currently logged in to a web application. Therefore, metrics are usually collected once per second, one per minute, or at another regular interval to monitor a system over time.]
+[WORK - Throughput, success, error, performance]
+    [throughput is the amount of work the system is doing per unit time. Throughput is usually recorded as an absolute number.]
+   [ success metrics represent the percentage of work that was executed successfully.]
+    [error metrics capture the number of erroneous results, usually expressed as a rate of errors per unit time or normalized by the throughput to yield errors per unit of work. Error metrics are often captured separately from success metrics when there are several potential sources of error, some of which are more serious or actionable than others.]
+    [performance metrics quantify how efficiently a component is doing its work. The most common performance metric is latency, which represents the time required to complete a unit of work. Latency can be expressed as an average or as a percentile, such as “99% of requests returned within 0.1s”.]
+[RESOURCES - Utilization, saturation, error, availability.]
+    [utilization is the percentage of time that the resource is busy, or the percentage of the resource’s capacity that is in use.]
+    [saturation is a measure of the amount of requested work that the resource cannot yet service, often queued.]
+    [errors represent internal errors that may not be observable in the work the resource produces.]
+    [availability represents the percentage of time that the resource responded to requests. This metric is only well-defined for resources that can be actively and regularly checked for availability.]
+[EVENTS - Code changes, alerts, scaling, "high demand service"]
+    [Changes: Internal code releases, builds, and build failures]
+    [Alerts: Internally generated alerts or third-party notifications]
+    [Scaling events: Adding or subtracting hosts]
+    [Events capture what happened, at a point in time, with optional additional information. ]
+[metrics are incredibly important for observability. ]
+[Good metrics are:]
+    [Granular. If you collect metrics too infrequently or average values over long windows of time, you may lose the ability to accurately reconstruct a system’s behavior. For example, periods of 100% resource utilization will be obscured if they are averaged with periods of lower utilization. Collect metrics for each system at a frequency that will not conceal problems, without collecting so often that monitoring becomes perceptibly taxing on the system (the observer effect) or creates noise in your monitoring data by sampling time intervals that are too short to contain meaningful data.]
+    [Tagged by scope. Each of your hosts operates simultaneously in multiple scopes, and you may want to check on the aggregate health of any of these scopes, or their combinations. For example: how is production doing in aggregate? How about production in the Northeast U.S.? How about a particular role or service? It is important to retain the multiple scopes associated with your data so that you can alert on problems from any scope, and quickly investigate outages without being limited by a fixed hierarchy of hosts.]
+    [Long-lived. If you discard data too soon, or if after a period of time your monitoring system aggregates your metrics to reduce storage costs, then you lose important information about what happened in the past. Retaining your raw data for a year or more makes it much easier to know what “normal” is, especially if your metrics have monthly, seasonal, or annual variations.]
+[Work metric: Throughput	Page	value is much higher or lower than usual, or there is an anomalous rate of change
+Work metric: Success	Page	the percentage of work that is successfully processed drops below a threshold
+Work metric: Errors	Page	the error rate exceeds a threshold
+Work metric: Performance	Page	work takes too long to complete (e.g., performance violates internal SLA)
+Resource metric: Utilization	Notification	approaching critical resource limit (e.g., free disk space drops below a threshold)
+Resource metric: Saturation	Record	number of waiting processes exceeds a threshold
+Resource metric: Errors	Record	number of errors during a fixed period exceeds a threshold
+Resource metric: Availability	Record	the resource is unavailable for a percentage of time that exceeds a threshold
+Event: Work-related	Page	critical work that should have been completed is reported as incomplete or failed]
+
+
+    [https://www.digitalocean.com/community/tutorials/an-introduction-to-metrics-monitoring-and-alerting]
+
+[Metrics, monitoring, and alerting are all interrelated concepts that together form the basis of a monitoring system. ]
+[If the metrics fall outside of your expected ranges, these systems can send notifications to prompt an operator to take a look, and can then assist in surfacing information to help identify the possible causes.]
+[Metrics represent the raw measurements of resource usage or behavior that can be observed and collected throughout your systems. ]
+[easiest metrics to begin with are those already exposed by your operating system to represent the usage of underlying physical resources. Example - disk space, CPU load, swap usage, etc.]
+[add code or interfaces to expose the metrics you care about. Collecting and exposing metrics is sometimes known as adding instrumentation to your services.]
+[monitoring is the process of collecting, aggregating, and analyzing those values to improve awareness of your components’ characteristics and behavior. ]
+[ difference between metrics and monitoring mirrors the difference between data and information. ]
+[ Data is composed of raw, unprocessed facts, while information is produced by analyzing and organizing data to build context that provides value.]
+[Secondly, monitoring systems typically provide visualizations of data.]
+
+[Monitoring systems functions:]
+[Their first responsibility is to accept and store incoming and historical data.] [view those numbers in relation to past values to provide context around changes and trends.][ This means that a monitoring system should be capable of managing data over periods of time, which may involve sampling or aggregating older data.]
+
+[Monitoring systems usually represent the components they measure with configurable graphs and dashboards.]
+[monitoring systems provide is organizing and correlating data from various inputs.]
+[Alerting is the responsive component of a monitoring system that performs actions based on changes in metric values. Alerts definitions are composed of two components: a metrics-based condition or threshold, and an action to perform when the values fall outside of the acceptable conditions.]
+[However, the main purpose of alerting is still to bring human attention to bear on the current status of your systems.]
+[Host-Based Metrics]
+
+Towards the bottom of the hierarchy of primitive metrics are host-based indicators. [These would be anything involved in evaluating the health or performance of an individual machine, disregarding for the moment its application stacks and services. These are mainly comprised of usage or performance of the operating system or hardware, like:
+
+    CPU
+    Memory
+    Disk space
+    Processes]
+[application metrics: units of processing or work that depend on the host-level resources, like services or applications. The specific types of metrics to look at depends on what the service is providing, what dependencies it has, and what other components it interacts with. Metrics at this level are indicators of the health, performance, or load of an application:
+
+    Error and success rates
+    Service failures and restarts
+    Performance and latency of responses
+    Resource usage]
+
+[network and connectivity indicators will be another dataset worth exploring. These are important gauges of outward-facing availability, but are also essential in ensuring that services are accessible to other machines for any systems that span more than one machine. Like the other metrics we’ve discussed so far, networks should be checked for their overall functional correctness and their ability to deliver necessary performance by looking at:
+
+    Connectivity
+    Error rates and packet loss
+    Latency
+    Bandwidth utilization]
+[When dealing with horizontally scaled infrastructure, another layer of infrastructure you will need to add metrics for is pools of servers. While metrics about individual servers are useful, at scale a service is better represented as the ability of a collection of machines to perform work and respond adequately to requests. This type of metric is in many ways just a higher level extrapolation of application and server metrics, but the resources in this case are homogeneous servers instead of machine-level components. Some data you might want to track are:
+
+    Pooled resource usage
+    Scaling adjustment indicators
+    Degraded instances]
+
+[External Dependency Metrics: Often, services provide status pages or an API to discover service outages, but tracking these within your own systems—as well as your actual interactions with the service—can help you identify problems with your providers that may affect your operations. Some items that might be applicable to track at this level are:
+
+    Service status and availability
+    Success and error rates
+    Run rate and operational costs
+    Resource exhaustion]
+
+[Factors That Affect What You Choose to Monitor
+
+For peace of mind, in an ideal world you would track everything related to your systems from the beginning in case an item may one day be relevant to you. However, there are many reasons why this might not be possible or even desirable.
+
+A few factors that can affect what you choose to collect and act on are:
+
+    Resources available for tracking: Depending on your human resources, infrastructure, and budget, you will have to limit the scope of what you keep track of to what you can afford to implement and reasonably manage.
+    The complexity and purpose of your application: The complexity of your application or systems can have a large impact on what you choose to track. Items that might be mission critical for some software might not be important at all in others.
+    The deployment environment: While robust monitoring is most important for production systems, staging and testing systems also benefit from monitoring, though there may be differences in severity, granularity, and the overall metrics measured.
+    The likelihood of the metric being useful: One of the most important factors affecting whether something is measured is its potential to help in the future. Each additional metric tracked increases the complexity of the system and takes up resources. The necessity of data can change over time as well, requiring reevaluation at regular intervals.
+    How essential stability is: Simply put, stability and uptime might not be priorities for certain types of personal or early stage projects.]
+
+[Important Qualities of a Metrics, Monitoring, and Alerting System:]
+
+[Independent from Most Other Infrastructure - external to other services.]
+
+[reliability. you can trust it to operate correctly on a daily basis.] [Dropped metrics, service outages, and unreliable alerting can all have an immediate harmful impact]
+
+[Easy to Use Summary and Detail Views - is useful and consumable to human operators. ] 
+
+[Equally important is the ability to drill down from within summary displays to surface the information most pertinent to the current task. Dynamically adjusting the scale of graphs, toggling off unnecessary metrics, and overlaying information from multiple systems is essential to make the tool useful interactively for investigations or root cause analysis.]
+
+[Effective Strategy for Maintaining Historical Data - help establish trends, patterns, and consistencies over long timelines.]
+
+[ability to easily import existing data sets. If reducing the information density of your historic metrics is not an attractive option, offloading older data to a long-term storage solution might be a better alternative.]
+
+[to display related information, even if it comes from different systems or has different characteristics.] 
+
+[need to be able to make adjustments as the machines and infrastructure change.]  
+
+A related ability that is important is the [ease in which the monitoring system can be set up to track entirely new metrics.] 
+
+[evaluate is its alerting capabilities: need to be flexible enough to notify operators through multiple mediums and powerful enough to be able to compose thoughtful, actionable notification triggers. Many systems defer the responsibility of actually delivering notifications to other parties by offering integrations with existing paging services or messenger applications. This minimizes the responsibility of the alerting functionality and usually provides more flexible options since the plugin just needs to consume an external API.]
+
+[cannot defer, however, is defining the alerting parameters. Alerts are defined based on values falling outside of acceptable ranges. some nuance in order to avoid over alerting. For instance, momentary spikes are often not a concern, but sustained elevated load may require operator attention.]
+
+
+    [Observability: Although not strictly defined, observability is a general term used to describe processes and techniques related to increasing awareness and visibility into systems. This can include monitoring, metrics, visualization, tracing, and log analAlerting is the responsive component of a monitoring system that performs actions based on changes in metric values. Alerts definitions are composed of two components: a metrics-based condition or threshold, and an action to perform when the values fall outside of the acceptable conditions.ysis.]
+    [Resource: In the context of monitoring and software systems, a resource is any exhaustible or limited dependency. What is considered a resource can vary greatly based on part of the system being discussed.]
+    [Latency: Latency is a measure of the time it takes to complete an action. Depending on the component, this can be a measure of processing, response, or travel time.]
+    [Throughput: Throughput represents the maximum rate of processing or traversal that a system can handle. This can be dependent on software or hardware design. Often there is an important distinction between theoretical throughput and practical observed throughput.]
+   [ Performance: Performance is a general measure of how efficiently a system is completing work. Performance is an umbrella term that often encompasses work factors like throughput, latency, or resource consumption.]
+    [Saturation: Saturation is a measure of the amount of capacity being used. Full saturation indicates that 100% of the capacity is currently in use.]
+    [Visualization: Visualization is the process of presenting metrics data in a format that allows for quick, intuitive interpretation through graphs or charts.]
+    [Log aggregation: Log aggregation is the act of compiling, organizing, and indexing log files to allow for easier management, searching, and analysis. While separate from monitoring, aggregated logs can be used in conjunction with the monitoring system to identify causes and investigate failures.]
+    [Data point: A data point is a single measurement of a single metric.]
+    [Data set: A data set is a collection of data points for a metric.]
+    [Units: Units are the context for a measured value. A unit defines the magnitude, scope, or quantity of a measurement to understand extent and allow comparison.]
+    [Percentage Units: Percentage units are measurements that are taken as a part of a finite whole. A percentage unit indicates how much a value is out of the total possible amount.]
+    [Rate Units: Rate units indicate the magnitude of a metric over a constant period of time.]
+    [Time series: Time series data is a series of data points that represent changes over time. Most metrics are best represented by a time series because single data points often represent a value at a specific time and the resulting series of points is used to show changes over time.]
+    [Sampling rate: Sample rate is a measurement of how often a representative data point is collected in lieu of continuous collection. A higher sampling rate more accurately represents the measured behavior, but requires more resources to handle the extra data points.]
+    [Resolution: Resolution refers to the density of data points that make up a data set. Collections with higher resolutions over the same time frame indicate a higher sample rate and a more granular view of the same behavior.]
+    [Instrumentation: Instrumentation is the ability to track the behavior and performance of software. This is accomplished by adding code and configuration to software to output data that can then be consumed by a monitoring system.]
+    [The observer effect: The observer effect is the impact of the monitoring system itself on the phenomena being observed. Since monitoring takes up resources, the act of measuring behavior and performance will alter the values produced. Monitoring systems seek to avoid adding unnecessary overhead to minimize this impact.]
+    [Over-monitoring: Over-monitoring occurs when the quantity of metrics and alerts configured is inversely related to their usefulness. Over-monitoring can cause stress on the infrastructure, make it difficult to find relevant data, and cause teams to lose trust in their monitoring and alerting systems.]
+    [Alert fatigue: Alert fatigue is the human response of desensitivity that results from frequent, unreliable, or improperly prioritized alerts. Alert fatigue can cause operators to ignore severe problems and is usually an indication that alert conditions need to be reevaluated.]
+    [Threshold: When alerting, a threshold is the boundary between acceptable and unacceptable values which triggers an alert if exceeded. Often alerts are configured to trigger when a value exceeds the threshold for a certain period of time, in order to avoid sending an alert for temporary spikes.]
+    [Quantile: A quantile is a dividing point used to separate a dataset into distinct groups based on their values. Quantiles are used to put values into “buckets” that represent segments of a population of data. Often, this is used to separate common values from outliers to better understand what constitutes representative and extreme cases.]
+    [Trend: A trend is the general direction that a set of values is indicating. Trends are more reliable than single values in determining the general state of the component being tracked.]
+    [White-box monitoring: White-box monitoring is a term used to describe monitoring that relies on access to internal state of the components being measured. White-box monitoring can provide a detailed understanding of system state and is helpful for identifying causes of problems.]
+    [Black-box monitoring: Black-box monitoring is monitoring that observes the external state of a system or component by looking only at its inputs, outputs, and behavior. This type of monitoring can closely align with a user’s experience of a system, but is less useful for finding the cause of problems.]
+
+
+
+
+    [https://en.wikipedia.org/wiki/High_availability]
+
+[High availability (HA) is a characteristic of a system which aims to ensure an agreed level of operational performance, usually uptime, for a higher than normal period. ]
+[    Elimination of single points of failure. This means adding or building redundancy into the system so that failure of a component does not mean failure of the entire system.
+    Reliable crossover. In redundant systems, the crossover point itself tends to become a single point of failure. Reliable systems must provide for reliable crossover.
+    Detection of failures as they occur. If the two principles above are observed, then a user may never see a failure – but the maintenance activity must.]
+[Availability is usually expressed as a percentage of uptime in a given year.][nines:Percentages of a particular order of magnitude are sometimes referred to by the number of nines or "class of nines" in the digits.]
+    [https://landing.google.com/sre/books/]
+
+[*Caption:"The End":06*]

@@ -1,0 +1,7 @@
+[made a mistake and locked yourself out.]
+[A simple first step is to use the *puppet parser validate* command that checks that the syntax of the manifests is correct]
+[complex]
+[another option you could use is having test machines that are used only for testing out changes.]
+[Puppet also lets us test our manifests automatically by using R-Spec tests in these tests.]
+[rspec.pp]
+[We can automate this process to, to do this we can use the set of test machines where we first apply the catalog and then use scripts to check that the machines are behaving correctly.]

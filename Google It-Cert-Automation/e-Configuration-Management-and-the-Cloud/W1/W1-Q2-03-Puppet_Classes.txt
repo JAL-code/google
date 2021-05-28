@@ -1,0 +1,5 @@
+[We use these classes to collect the resources that are needed to achieve a goal in a single place.]
+[class that installs a package, sets the contents of a configuration file, and starts the service provided by that package.]
+[example_w1_q2_03_01.bash]
+[All of them are related to the Network Time Protocol, or NTP, the mechanism our computers use to synchronize the clocks.]
+[This would make it easier to make changes in the future since we have all the related resources together.]

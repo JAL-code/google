@@ -1,0 +1,4 @@
+[deeper into how to use these tools.]
+[This test setup will let you try out the examples in these videos on your own computer.]
+[typical client-server set-up with Puppet clients connecting and authenticating to the Puppet server to get the rules that they should apply and on top of this, we'll talk about how to use testing techniques and releasing best practices to safely deploy changes to clients of our configuration management system.]
+[packages, files, and services.]
