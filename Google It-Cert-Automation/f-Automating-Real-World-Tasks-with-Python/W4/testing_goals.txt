@@ -1,0 +1,187 @@
+STAGE ONE - Process the images
+filename: changeImage.py
+ls ~/
+sudo chmod +x ~/download_drive_file.sh
+./download_drive_file.sh 1LePo57dJcgzoK4uiI_48S01Etck7w_5f supplier-data.tar.gz
+ls
+# Create a directory supplier-data with subdir. images and descriptions
+tar xf ~/supplier-data.tar.gz
+# List the the folders
+ls ~/supplier-data
+# See an example: "name", "weight", "descriptions"
+cat ~/supplier-data/descriptions/007.txt
+# Write a Python script changeImage.py to process the supplier images
+# at: ~/supplier-data/images
+# Size: 3000x2000 to 600x400
+# Format: .TIFF to .JPEG
+nano ~/changeImage.py
+# Add shebang -  #!/usr/bin/env python3
+# Notes: use "convert("RGB") to transform from RGBA
+# Save them in same path ~/supplier-data/images with JPEG extension
+sudo chmod +x ~/changeImage.py
+# Convert the files
+./changeImage.py
+# Check them
+file ~/supplier-data/images/003.jpeg
+
+STAGE TWO - Upload the images
+filename: supplier_image_upload.py
+
+# Time to upload the files using "requests" to "[linux-instance-IP-Address]/upload"
+# copy "external IP address" and in the IP address in new web browser tab
+# Displays the text "Frunit Catalog"
+# view the example_upload.py script
+cat ~/example_upload.py
+
+# Check that the file icon.sheet.png was uploadeded to the webserver
+# visit: [linux-instance-IP-Address]/media/images/ + click on file name
+# ##!/usr/bin/env python3
+# #import requests
+# #url = "http:/localhost/upload/"
+# #with open('/usr/share/apache2/icons/icon.sheet.png', 'rb') as opened:
+# #    r = requests.post(url, files={'file': opened})
+
+# Upload a sample image named "icon.sheet.png"
+sudo chmod +x ~/example_upload.py
+./example_upload.py
+# Check that the file was uploaded to 
+# [linux-instance-IP-Address]/media/images/
+# Do the same an with file supplier_image_upload.py
+nano ~/supplier_image_upload.py
+# use example file to duplicate the script.
+
+sudo chmod +x ~/supplier_image_upload.py
+./supplier_image_upload.py
+
+STAGE THREE - Send a List of the products via json.
+filename: run.py
+
+# Nav to linux-instance-IP-Address/fruits
+# No products listed!  The following format creates a fruit item
+# {"name": "Test Fruit", "weight": 100, "description": "This is the description of my test fruit", "image_name": "icon.sheet.png"}
+# Create a new Python script that will automatically POST 
+# the fruit image and description in JSON format.
+
+nano ~/run.py
+# ##! /usr/bin/env python3
+# #import os
+# #import requests
+# Process the .txt files in supplier-data/descriptions/ 
+# Save in JSON - name, weight(in lbs), description
+# Drop lbs and convert [value] to [integer]
+# Example:
+# {"name": "Watermelon", "weight": 500, "description": "Watermelon is good for relieving heat, eliminating annoyance and quenching thirst. It contains a lot of water, which is good for relieving the symptoms of acute fever immediately. The sugar and salt contained in watermelon can diuretic and eliminate kidney inflammation. Watermelon also contains substances that can lower blood pressure.", "image_name": "010.jpeg"}
+
+upload:  http://[linux-instance-external-IP]/fruits
+
+sudo chmod +x ~/run.py
+./run.py
+
+STAGE FOUR - Create a report
+filename: reports.py
+
+# Generate a PDF report and send it through email.
+# Use ReportLab Library
+
+Processed Update on <Today's date>
+[blank]
+name: Apple
+weight: xxx lbs
+[blank]
+name: Avocado
+weight: xxx lbs
+[blank]
+
+# Create a scipt "reports.py" to generate PDF report
+nano ~/reports.py
+# Add a shebang
+# #!/usr/bin/env python3
+# #import os
+# #import datetime
+# #import reports
+# process data from supplier-data/descriptions
+# #if __name__ == "__main__":
+# #     reports.generate_report(attachment, title, paragraph)
+# Ctrl-o, Enter, Ctrl-x
+
+STAGE FIVE - Send the report
+filename: report_email.py
+
+# Send report through email
+# Use emails.generate_email() and emails.send_email() methods.
+nano ~/emails.py
+# Define generate_email and send_email methods
+nano ~/report_email.py
+# #if __name__ == "__main__":
+# call the methods created
+# pass to emails.generate_email()
+
+    From: automation@example.com
+    To: username@example.com
+        Replace username with the username given in the Connection Details Panel on the right hand side.
+    Subject line: Upload Completed - Online Fruit Store
+    E-mail Body: All fruits are uploaded to our website successfully. A detailed list is attached to this email.
+    Attachment: Attach the path to the file processed.pdf
+
+# Save report_email.py and run the script
+# check the webmail by visiting [linux-instance-external-IP]/webmail
+# login to roundcube using the username and password mentioned
+
+STAGE SIX - CRON JOB
+filename: health_check.py
+
+# Health check: health_check.py
+# Report an error if CPU usage is over 80%
+# Report an error if available disk space is lower than 20%
+# Report an error if available memory is less than 500MB
+# Report an error if the hostname "localhost" cannot be resolved to "127.0.0.1"
+nano ~/health_check.py
+# #!/usr/bin/env python3
+# #import shutil
+# #import psutil
+# Check the script to check the system statistics every 60 seconds
+# If either 4 error send an email with following
+
+    From: automation@example.com
+    To: username@example.com
+        Replace username with the username given in the Connection Details Panel on the right hand side.
+    Subject line:
+
+    Case   	
+
+    Subject line:
+
+    CPU usage is over 80%
+    Error - CPU usage is over 80%
+
+    Available disk space is lower than 20%
+    Error - Available disk space is less than 20%
+
+    Available memory is less than 500MB
+    Error - Available memory is less than 500MB
+
+    hostname "localhost" cannot be resolved to "127.0.0.1"
+    Error - localhost cannot be resolved to 127.0.0.1
+    
+    E-mail Body: Please check your system and resolve the issue as soon as possible.
+# Note: there is no attachment for this report.
+
+sudo chmod +x ~/health_check.py
+./health_check.py
+# test with the stress tool
+sudo apt install stress
+stress --cpu 8
+
+open another SSH connection to the linux-instance
+nav to virtual machine on the navigation pance
+
+./health_check.py
+# should print CPU usage over 80%
+Ctrl-c
+
+crontab -e
+enter 1 -> set the complete path for health_check.py
+
+
+
+

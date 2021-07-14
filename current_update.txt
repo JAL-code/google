@@ -8,24 +8,12 @@ Changes not staged for commit:
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/W1-F1
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/W1-Q2-01-What_is_Puppet_.txt
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/W1-Q2-02-Puppet_Resources.txt
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/W1-Q2-03-Puppet_Classes.txt
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/W1-Q2-04-Puppet_Resources_2.txt
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/W1-Q2-N0.txt
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/W1-Q3-02-The_Driving_Principles_of_Configuration_Management.txt
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/W1-Q3-N0.txt
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/example_w1_q2_01.pp
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/example_w1_q2_02_01.pp
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/example_w1_q2_02_02.pp
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/example_w1_q2_03_01.pp
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/example_w1_q3_01_01.pp
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/example_w1_q3_03_01.pp
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/example_w1_q3_03_02.pp
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W1/test_ notes.odt
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W2/
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W3/
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W4/
+	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W4/final_exam.odt
+	Google It-Cert-Automation/f-Automating-Real-World-Tasks-with-Python/STC/
+	Google It-Cert-Automation/f-Automating-Real-World-Tasks-with-Python/W1/
+	Google It-Cert-Automation/f-Automating-Real-World-Tasks-with-Python/W2/
+	Google It-Cert-Automation/f-Automating-Real-World-Tasks-with-Python/W3/
+	Google It-Cert-Automation/f-Automating-Real-World-Tasks-with-Python/W4/
+	a_class_highlights_list_lines.py
 
 no changes added to commit (use "git add" and/or "git commit -a")
