@@ -1,0 +1,92 @@
+findJane.sh
+_______________
+#!/bin/bash
+
+>oldFiles.txt
+files=$(grep "jane " ../data/list.txt | cut -d ' ' -f3)
+echo $files #test  #optional
+for f in $files; do
+ if [ -e $HOME$f ]; then
+    echo $HOME$f >> oldFiles.txt; 
+ fi
+done
+-----------------------
+
+#alt for
+for i in $files;
+
+do 
+
+  if test -e /home/[student ID]; 
+
+    then echo "/home/[student ID]"$i >> oldFiles.txt; 
+
+    else echo "File does not exist"; 
+
+  fi;
+
+done
+--------------------
+alt findJane.sh
+
+#!/bin/bash
+> oldFiles.txt
+files=$(grep " jane " ../data/list.txt | cut -d' ' -f3)
+for f in $files; do
+  if test -e "$HOME$f"; then
+    echo "$HOME$f" >> oldFiles.txt;
+  fi
+done
+_____________________
+changeJane.sh
+__________________
+#!/usr/bin/env python3
+
+import sys
+import subprocess
+
+f = open(sys.argv[1], "r")
+for line in f.readlines():
+  old_name = line.strip()
+  new_name = old_name.replace("jane", "jdoe")
+  subprocess.run(["mv", old_name, new_name])
+f.close()
+
+------------------------
+
+alt with
+
+with open(sys.argv[1], "r") as f:
+  for line in f.readlines():
+    old_name = line.strip()
+    new_name = old_name.replace("jane", "jdoe")
+    subprocess.run("mv ~{} ~{}".format(old_name, new_name), shell=True)
+f.close()
+
+alt changeJane.sh
+_______________________________
+#!/bin/bash
+
+# define the base path, input, and output files path
+cd ..
+path_base=$(pwd)
+input_file=$path_base/data/list.txt
+output_file=$path_base/scripts/oldFiles.txt
+
+# create a new empty output file
+> $output_file
+
+# Search jane files in the list.txt
+jane_files=$(grep "jane\b" $input_file | cut -d " " -f3)
+
+# For each jane's file, test if it exists
+for file in $jane_files; do
+  test_file=$path_base$file
+  if test -e $test_file; then
+    echo "File exists: " $test_file; 
+    # save the file path in the output file
+    echo $test_file >> $output_file
+  else
+    echo "File NOT FOUND: " $test_file;
+  fi;
+done
