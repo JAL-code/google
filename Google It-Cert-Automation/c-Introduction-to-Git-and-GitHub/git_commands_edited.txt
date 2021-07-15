@@ -197,7 +197,7 @@
   197  which python
   198  pip install chemtools
   199  pip3  install chemtools
-  ...
+  ...  A test ....
   309  ls -l
   310  cd checks
   311  git log -2
