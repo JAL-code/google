@@ -1,0 +1,378 @@
+   1  sudo apt-get install mono-complete
+    2  brew install mono mono-libgdiplus
+    3  xbuild /p:Configuration=Release src/Dynamo.Mono.sln
+    4  sudo apt update
+    5  sudo apt install software-properties-common apt-transport-https wget
+    6  wget -q https://packagecloud.io/AtomEditor/atom/gpgkey -O- | sudo apt-key add -
+    7  sudo add-apt-repository "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main"
+    8  sudo apt install atom
+    9  git --version
+   10  mkdir my-get-repo
+   11  cd my-get-repo
+   12  git init
+   13  git config --global user.email email@x.com
+   14  nano README
+   15  git status
+   16  get add README
+   17  git add README
+   18  git status
+   19  git commit
+   20  git status
+   21  nano README
+   22  git status
+   23  git diff README
+   24  git add README
+   25  git status
+   26  git commit -m "This is my second commit."
+   27  git log
+   28  man git-log
+   29  git help log
+   30  man git-tar
+   31  git log -p
+   32  git branch experimental
+   33  git branch
+   34  cd ..
+   35  mkdir scripts
+   36  cd scripts
+   37  atom all_checks.py
+   38  chmod +x all_check.py
+   39  chmod +x all_checks.py
+   40  ./all_checks.py
+   41  get status
+   42  git status
+   43  git init
+   44  git status
+   45  git add all_checks.py
+   46  git status
+   47  git commit -a -m "Added File to Git Management."
+   48  git commit -a -m "Call check_reboot from main, exit with 1 on error"
+   49  get log
+   50  git log
+   51  git log -p
+   52  git show c3b05a8aef567896add0a065ec5a39f96327279e
+   53  git log --stat
+   54  git diff
+   55  git add -p
+   56  git diff
+   57  git diff --staged
+   58  git commit -m 'Add a message when everything is okay."
+   59  git show c3b05a8aef567896add0a065ec5a39f96327279eq
+   60  git commit -m 'Add a message when everything is okay.'
+   61  nano process.py
+   62  ls -l
+   63  git rm process.py
+   64  git add process.py
+   65  git status
+   66  git rm process.py
+   67  git commit -m 'Temporary file to be deleted."
+   68  '
+   69  git rm process.py
+   70  ls -l
+   71  git status
+   72  git commit -m 'Delete unneeded file.'
+   73  nano test_file.py
+   74  git mv test_file.py check_free_space.py
+   75  git add test_file.py
+   76  git mv test_file.py check_free_space.py
+   77  git status
+   78  git commit -m 'Renamed test_file to check_free_space.'
+   79  ls -l
+   80  nano ignore_this_file.txt
+   81  ls -l
+   82  echo ignore_this_file.txt > .gitignore
+   83  ls -l
+   84  git add .gitignore
+   85  git commit -m 'Add a gitignore file, ignoring ignore_this_file.txt.'
+   86  ls -la
+   87  git push
+   88  man git-commit
+   89  git remote add origin git@github.com:JAL-code/scripts.git
+   90  git push -u origin main
+   91  git remote add origin https://github.com/JAL-code/scripts.git
+   92  git push -u origin main
+   93  git branch -M main
+   94  git push -u origin main
+   95  ssh -vT git@github.com
+   96  ssh -T JAL-code@github.com
+   97  ssh -T git@github.com
+   98  get remote -v
+   99  git remote -v
+  100  git remote set -url origin https://github.com/JAL-code/scripts.git
+  101  git remote set-url origin https://github.com/JAL-code/scripts.git
+  102  git remote -v
+  103  ssh -T GITHUB-USERNAME@github.com
+  104  ssh -vT git@github.com
+  105  ssh -T JAL-code@github.com
+  106  ssh -T git@github.com
+  107  ssh-add -l -E sha256
+  108  ssh-keygen -t ed25519 -C "email@x.com"
+  109  $ eval "$(ssh-agent -s)"
+  110  eval "$(ssh-agent -s)"
+  111  ssh-add ~/.ssh/id_ed25519
+  112  cd scripts
+  113  atom all_checks.py
+  114  ./all_checks.py
+  115  get status
+  116  git statu
+  117  git status
+  118  git checkout all_checks.py
+  119  git status
+  120  ./all_checks.py
+  121  ./all_checks.py > output.txt
+  122  git add *
+  123  git status
+  124  git reset HEAD output.txt
+  125  git status
+  126  git commit -m "it should be os.path.exists"
+  127  touch auto-update.py
+  128  touch gather-information.sh
+  129  ls -l
+  130  git add auto-update.py
+  131  git commit -m 'Add two new scripts'
+  132  git add gather-information.sh
+  133  git commit --amend
+  134  atom all_checks.py
+  135  git commit -a -m 'Add call to disk_full function'
+  136  ./all_checks.py
+  137  git revert head
+  138  git revert HEAD
+  139  git log -p -2
+  140  cd ..
+  141  cd checks
+  142  ls -l
+  143  mkdir checks
+  144  pip3 install mu-editor
+  145  pip --version
+  146  idle3
+  147  sudo apt install idle3
+  148  idle3
+  149  idle
+  150  easy_install pip
+  151  sudo apt update
+  152  sudo apt install python3-pip
+  153  pip3 --version
+  154  pip3 install mu-editor
+  155  mu-editor
+  156  sudo apt install mu-editor
+  157  mu-editor
+  158  conda install -c bjodah chempy pytest
+  159  pip install chempy
+  160  pip --version
+  161  bash Miniconda3-latest-Linux-x86_64.sh
+  162  sha256sum filename
+  163  sha256sum Miniconda3-latest-Linux-x86_64.sh
+  164  sudo apt update
+  165  sudo apt upgrade
+  166  sha256sum Miniconda3-latest-Linux-x86_64.sh
+  167  ls -l
+  168  cd downloads
+  169  cd Downloads
+  170  sha256sum Miniconda3-latest-Linux-x86_64.sh
+  171  bash Miniconda3-latest-Linux-x86_64.sh
+  172  conda install -c bjodah chempy pytest
+  173  cd ..
+  174  conda install -c bjodah chempy pytest
+  175  conda --version
+  176  Miniconda --version
+  177  Miniconda
+  178  python3 --version
+  179  conda install 
+  180  pip install chemlab
+  181  python -m pip --version
+  182  python3 -m pip --version
+  183  pip install pip
+  184  pip install chemlab
+  185  cd Downloads
+  186  pip install chemlab
+  187  python3 -m pip --version
+  188  python3 -m pip install chemlab
+  189  python3.7 -m pip install cython
+  190  python3 -m pip install cython
+  191  python3 -m pip install chemlab
+  192  pip install chemtoolds
+  193  python3
+  194  conda list
+  195  cd ..
+  196  conda list
+  197  which python
+  198  pip install chemtools
+  199  pip3  install chemtools
+  ...
+  309  ls -l
+  310  cd checks
+  311  git log -2
+  312  ls -l
+  313  cd ..
+  314  cd scripts
+  315  git show
+  316  get log
+  317  git show
+  318  git checkout 24362df
+  319  get checkout all_checks.py
+  320  git checkout all_checks.py
+  321  cd checks
+  322  nano  disk_usage.py
+  323  git init
+  324  git add disk_usage.pyj
+  325  git add disk_usage.py
+  326  git status
+  327  git commit
+  328  nano disk_usage.py
+  329  ./disk_usage.py
+  330  chmod +x ./disk_usage.py
+  331  ./disk_usage.py
+  332  nano disk_usage.py
+  333  ./disk_usage.py
+  334  nano disk_usage.py
+  335  ./disk_usage.py
+  336  git status
+  337  git add disk_usage.py
+  338  git status
+  339  git commit
+  340  git status
+  341  nano disk_usage.py
+  342  git status
+  343  git add disk_usage.py
+  344  git commit -m 'Add periods to the end of messages.'
+  345  git status
+  346  git log
+  347  git show 4f63
+  348  git log --stat
+  349  nano disk_usage.py
+  350  git diff
+  351  git add -p
+  352  git diff --staged
+  353  git commit -m 'Gave user reference memory limitation.'
+  354  git status
+  355  cp disk_usage.py process.py
+  356  ls -l
+  357  git rm process.py
+  358  git add process.py
+  359  git status
+  360  git commit -m 'Copied and added duplicate disk_usage.py'
+  361  git rm process.py
+  362  git status
+  363  git commit -m 'Delete unneeded process file'
+  364  git mv disk_usage.py check_free_space.py
+  365  git status
+  366  git commit -m 'New name for disk_usage.py.'
+  367  echo .DS_STORE > .gitignore
+  368  ls -la
+  369  git add .gitignore
+  370  git commit -m 'Add a gitignore file, ignoring .DS_STORE.'
+  371  git branch
+  372  git branch new-feature
+  373  git branch
+  374  git checkout new-feature
+  375  git branch
+  376  git checkout -b even-better-feature
+  377  git branch
+  378  atom free_memory.py
+  379  git add free_memory.py
+  380  git commit -m 'Add an empty free_memory.py.'
+  381  git log -2
+  382  git status
+  383  ls -l
+  384  git checkout master
+  385  git log -2
+  386  ls -l
+  387  git branch
+  388  git branch -d new-feature
+  389  git branch
+  390  git branch -d even-better-feature
+  391  git merge even-better-feature
+  392  git log
+  393  nano free_memory.py
+  394  git commit -a -m 'Add comment to mainn().'
+  395  git checkout even-better-feature
+  396  nano free_memory.py
+  397  git commit -a -m 'Print everything ok.'
+  398  git merge even-better-feature
+  399  git checkout master
+  400  git merge even-better-feature
+  401  git status
+  402  atom free_memory.py
+  403  git add free_memory.py
+  404  git status
+  405  git commit
+  406  git log --graph --oneline
+  407  cd ..
+  ...
+  470  git clone https://github.com/JAL-code/health-checks.git
+  471  cd health-checks/
+  472  ls -l
+  473  atom README.md
+  474  git commit -a -m "Add start comment to README.md."
+  475  git push
+  476  git config --global credential.helper cache
+  477  git pull
+  478  git remote -v
+  479  git remote show origin
+  480  git branch -r
+  481  git remote show origin
+  482  git fetch
+  483  git checkout
+  484  git log orgin/master
+  485  git log origin/master
+  486  git push origin/main
+  487  git log origin main
+  488  git status
+  489  git merge origin main
+  490  cd ..
+  491  ls -l
+  492  cd checks
+  493  ls
+  494  cd ..
+  495  cd scripts
+  496  git status
+  497  all_checks.py
+  498  ./all_checks.py
+  499  git add all_checks.py
+  500  git commit
+  501  git status
+  502  git add output.txt
+  503  git commit
+  504  git status
+  505  cd ..
+  506  cd health-checks
+  507  git status
+  508  git add health-checks
+  509  git add health-checks.py
+  510  git add all_check.py
+  511  git add all_checks.py
+  512  git commit
+  513  git status
+  514  git push
+  515  ls
+  516  git checkout -b refactor
+  517  atom all_checks.py
+  518  ./all_checks.py
+  519  git commit -a -m 'Create wrapper function for check_disk_full."
+  520  ./all_checks.py
+  521  cd health-checks
+  522  ./all_checks.py
+  523  git commit -a -m 'Create wrapper function for check_disk_full. Iterate over a list of checks and messages to avoid duplication.'
+  524  ./all_checks.py
+  525  git commit -a -m 'ALlow printing more than one error message'
+  526  git push -u origin refactor
+  527  git checkout master
+  528  git checkout main
+  529  git log --graph --online --all
+  530  git log --graph --oneline --all
+  531  git fetch
+  532  git log --graph --oneline --all
+  533  git checkout refactor
+  534  git rebase master
+  535  git rebase main
+  536  git log --graph --oneline
+  537  git checkout master
+  538  git merge refactor
+  539  git push --delete origin refactor
+  540  ./all_checks.py
+  541  git commit -a -m 'Add a simple network connectivity check'
+  542  chmod 600 ~/Downloads/qwikLABS-LXXXX-XXXXXXXX.pem
+  545  python3 --version
+  546  which python3
+  547  python3
+  
+
