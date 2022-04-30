@@ -7,3 +7,9 @@ Example:  Google Folder_for_Python/example.py has a space in the file location f
 If the text is entered into a command the terminal will only look for "Google" or 'Google'.
 To get this folder to work the character " needs a \" escape.
 Now terminal will recognize the folder location as "Google Folder_for_Python/example.py".
+
+April 2022:
+
+  Added a new folder for Tkinter.  This is a self modivated effort to learn how to code GUIs with Python. I have add three outside sources for instructional material.
+  
+  The primary goal is develop a working stepped program that involves user interaction while processing a complex involved task.  
