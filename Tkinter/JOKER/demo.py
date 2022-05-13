@@ -10,6 +10,8 @@ class MainGui:
         root.grid()
         print("Started Container")
 
+        frame = ttk.Frame(root)
+
 if __name__ == "__main__":
     root = Tk()
     MainGui(root)
