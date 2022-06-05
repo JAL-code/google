@@ -23,15 +23,16 @@ file.add_separator()
 file.add_command(label = 'Open...', command = lambda: print('Opening File...'))
 file.add_command(label = 'Save', command = lambda: print('Saving File...'))
 
-file.entryconfig('New', accelerator = 'Ctrl+N')
-logo = PhotoImage(file = 'python_logo.gif').subsample(10, 10) # Change path as needed
+file.entryconfig('New', accelerator = 'Ctrl+N')  # Text only, no binding.
+logo = PhotoImage(file = "C://Users//Joseph//Documents//GitHub//google//Tkinter//Python_GUI_Development_with_Tkinter//Exercise_Files//Ch05//python_logo.gif").subsample(10, 10) # Change path as needed
 file.entryconfig('Open...', image = logo, compound = 'left')
+# Disable a entry
 file.entryconfig('Open...', state = 'disabled')
 
 file.delete('Save')
 save = Menu(file)
 file.add_cascade(menu = save, label = 'Save')
-save.add_command(label = 'Save As',command = lambda: print('Saving As...'))
+save.add_command(label = 'Save As', command = lambda: print('Saving As...'))
 save.add_command(label = 'Save All', command = lambda: print('Saving All...'))
 
 choice = IntVar()

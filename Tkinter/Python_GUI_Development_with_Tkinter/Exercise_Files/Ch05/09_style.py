@@ -3,7 +3,9 @@
 # This is an exercise file from Python GUI Development with Tkinter on lynda.com
 
 from tkinter import *
-from tkinter import ttk        
+from tkinter import ttk   
+
+# Widget States - active, disabled, focus, pressed, selected, background, readonly, alternate, invalid, hover
     
 root = Tk()
 
@@ -12,12 +14,20 @@ button2 = ttk.Button(root, text = 'Button 2')
 button1.pack()
 button2.pack()
 
+# style object
 style = ttk.Style()
 
 print(style.theme_names())
 print(style.theme_use())
 style.theme_use('classic')
 style.theme_use('vista')
+
+# Widget Style Names
+# "T" + widget name: TButton, TFrame, TCombobox
+# Except for:   Treeview, TPanedwindow, 
+#               Horizontal.TScale or Vertical.Tscale, 
+#               Horizontal.TScrollbar or Vertical.TScrollbar
+#               Horizontal.TProgressbar or Vertical.TProgressbar
 
 print(button1.winfo_class())
 style.configure('TButton', foreground = 'blue')

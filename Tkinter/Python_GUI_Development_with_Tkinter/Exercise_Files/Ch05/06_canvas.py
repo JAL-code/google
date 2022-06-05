@@ -29,7 +29,7 @@ canvas.itemconfigure(arc, start = 0, extent = 180, fill = 'green')
 poly = canvas.create_polygon(160, 360, 320, 480, 480, 360, fill = 'blue')
 text = canvas.create_text(320, 240, text = 'Python', font = ('Courier', 32, 'bold'))
 
-logo = PhotoImage(file = 'python_logo.gif') # Change path as needed
+logo = PhotoImage(file = "C://Users//Joseph//Documents//GitHub//google//Tkinter//Python_GUI_Development_with_Tkinter//Exercise_Files//Ch05//python_logo.gif") # Change path as needed
 image = canvas.create_image(320, 240, image = logo)
 
 canvas.lift(text)

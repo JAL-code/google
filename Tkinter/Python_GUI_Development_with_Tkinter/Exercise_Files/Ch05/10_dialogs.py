@@ -7,6 +7,7 @@ from tkinter import messagebox
 messagebox.showinfo(title = "A Friendly Message", message = 'Hello, Tkinter!')
 print(messagebox.askyesno(title = 'Hungry?', message = 'Do you want SPAM?'))
 
+# Filedialog Types: askopenfile(mode), askopenfiles(mode), askopenfilename(), askopenfilenames()
 from tkinter import filedialog
 filename = filedialog.askopenfile()
 print(filename.name)

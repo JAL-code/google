@@ -23,4 +23,5 @@ def canvas_click(event):
 
 canvas.bind('<1>', canvas_click)
 
+
 root.mainloop()
