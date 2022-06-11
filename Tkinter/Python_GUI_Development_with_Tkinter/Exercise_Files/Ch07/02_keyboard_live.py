@@ -30,6 +30,12 @@ def key_press(event):
     print('keysym: {}'.format(event.keysym))
     print('keycode: {}'.format(event.keycode))
 
+def shortcut(action):
+    print(action)
+
 root.bind('<KeyPress>', key_press)
+
+root.bind('<Control-c>', lambda e: shortcut('Copy'))
+root.bind('<Control-v>', lambda e: shortcut('Paste'))
 
 root.mainloop()
