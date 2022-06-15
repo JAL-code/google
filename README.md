@@ -10,6 +10,6 @@ Now terminal will recognize the folder location as "Google Folder_for_Python/exa
 
 April 2022:
 
-  Added a new folder for Tkinter.  This is a self modivated effort to learn how to code GUIs with Python. I have add three outside sources for instructional material.
-  
+  Added a new folder for Tkinter.  This is a self modivated effort to learn how to code GUIs with Python. I have added three outside sources for instructional material.
+
   The primary goal is develop a working stepped program that involves user interaction while processing a complex involved task.  

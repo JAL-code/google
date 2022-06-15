@@ -4,16 +4,13 @@ Your branch is up to date with 'origin/main'.
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+	modified:   Tkinter/JOKER/demo input.py
+	modified:   Tkinter/Python_GUI_Development_with_Tkinter/Exercise_Files/Ch08/06_feedback_solution.py
 	modified:   current_update.txt
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-	Google It-Cert-Automation/e-Configuration-Management-and-the-Cloud/W4/final_exam.odt
-	Google It-Cert-Automation/f-Automating-Real-World-Tasks-with-Python/STC/
-	Google It-Cert-Automation/f-Automating-Real-World-Tasks-with-Python/W1/
-	Google It-Cert-Automation/f-Automating-Real-World-Tasks-with-Python/W2/
-	Google It-Cert-Automation/f-Automating-Real-World-Tasks-with-Python/W3/
-	Google It-Cert-Automation/f-Automating-Real-World-Tasks-with-Python/W4/
-	a_class_highlights_list_lines.py
+	Tkinter/TkDocs/python_logo.gif
 
 no changes added to commit (use "git add" and/or "git commit -a")
