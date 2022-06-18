@@ -37,7 +37,8 @@ canvas.grid()
 def draw(event):
     global prev
     canvas.create_line(prev.x, prev.y, event.x, event.y, width=5)
-
+    prev = event
+    
 canvas.bind('<ButtonPress>', mouse_press)
 canvas.bind('<B1-Motion>', draw)
 
