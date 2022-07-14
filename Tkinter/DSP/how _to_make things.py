@@ -3,19 +3,19 @@
 #  Iron vein (IV)
 #  Stone vein (SV)
 #   Silicon vein (SiV)
-#       Fractal silicon vein (FSiV)
-#       Star (ST)
-#       Crude oil vein (CoilV)
-#       Ice giant (ICE)
-#       Fire ice vein (FIV)
-#       Coal vein (CLV)
-#       Gas giant (GAS)
-#       Optical grating rock vein (OPRV)
-#       Titanium vein (TiV)
-#       Sulfur sea (SS)
-#       Water sea (WS)
-#       Organic crystal vein (OCV)
-#       Kimberlite vein (KiV)
+#   Fractal silicon vein (FSiV)
+#   Star (ST)
+#   Crude oil vein (CoilV)
+#   Ice giant (ICE)
+#   Fire ice vein (FIV)
+#   Coal vein (CLV)
+#   Gas giant (GAS)
+#   Optical grating rock vein (OPRV)
+#   Titanium vein (TiV)
+#   Sulfur sea (SS)
+#   Water sea (WS)
+#   Organic crystal vein (OCV)
+#   Kimberlite vein (KiV)
 #   Spiniform stalagmite crystal vein (SpSCV)
 #  * Level one
 #   Copper ore (Cor)
@@ -142,4 +142,40 @@
 #   Orbital Collector   (OrbClct)
 #   Logistics vessel    (LogVes)
 #   ITEMS: 136
-  
+#   Properties (By Node)
+#           Research Facility:  Name, Picture, Stack Size, Assembler speed, Work consumption, Idle consumption, Flags, [Recipe], [Action Type]
+#           Logistics:                  Name, Picture, Stack Size, Technology, Flags, [Recipes], Used In, [Belt speed, Work consumption, Idle Consumption, Cells, Volume, Can Accumulate, Max Drones, Max Items, Item Types, Max Ships]
+#           Chemical Facility:          Name, Picture, Stack Size, Assembler speed, Work consumption, Idle consumption, Flags, [Recipe], [Action Type]
+#           Assembler:                  Name, Picture, Stack Size, Assembler speed, Work consumption, Idle consumption, Technology, Flags, [Recipe], [Used In], [Action Type]
+#           Oil Extraction Facility:    Name, Picture, Stack Size, Assembler speed, Work consumption, Idle consumption, Flags, [Recipe], [Action Type]
+#           Refining Facility:          Name, Picture, Stack Size, Assembler speed, Work consumption, Idle consumption, Flags, [Recipe], [Action Type]
+#           Mining Facility:            Name, Picture, Stack Size, Assembler speed, Work consumption, Idle consumption, Flags, [Recipe], [Action Type]
+#           Power Facility:             Name, Picture, Stack Size, Power connect, Power radius, Generate energy, Technology, Flags, [Recipe], [Action Type]
+#           End Product:                Name, Picture, Energy, Flags, [Recipes], [Used In]
+#           Power Storage:              Name, Picture, Stack Size, Power Connect, Energy, Flags, [Recipes], [Used in]
+#           FluidVein:                  Name, Picture, Used In, Stack Size, [Recipes], [Action Type]
+#           Science Matrix:             Name, Picture, Color, Stack Size, [Recipes], [Used in]
+#           Technology:                 Name, Picture, Hashes, [Unlock], [Resources], [Action Type]
+#           Power Transmission:         Name, Picture, Power connect, Power radius, Technology, Flags, [Recipe], [Used In], [Action Type]
+#           Smelting Facility:          Name, Picture, Stack Size, Assembler Speed, Work Consumption, Idle Consumption, Flags, [Recipe]
+#           Production Facility:        Name, Picture, Stack Size, Work consumption, Idle consumption, Flags, [Recipe]
+#           Water Pumping Facility:     Name, Picture, Stack Size, Assembler Speed, Work Consumption, Idle Consumption, Flags, [Recipe]
+#           Fractionation Facility:     Name, Picture, Stack Size, Assembler speed, Work consumption, Idle consumption, Flags, [Recipe]
+#           Component:                  Name, Picture, Stack size, Flags, [Recipes], [Action Type]
+#           Particle Collider:          Name, Picture, Stack Size, Assembler speed, Work consumption, Idle consumption, Flags, [Recipe]
+#           Natural Resource:           Name, Picture, Used In, NodeType, Stack size, Energy, Flags, NodeType, Production, [Recipes],  [Used In], [Action Type]
+#           Vein:                       Name, Picture, Used In, NodeType, [Action Type]
+#           Material:                   Name, Picture, Stack size, Flags, [Recipes], Used In, [Action Type]
+# $$ Arrays:
+#   Action Type: PowerTransfer, MineDrill, Smelt, Pump, PhotonCatch, Refine, Particle, Research resource, MineFluidExtractor, Fractionate, Research, OrbitCollector, Assemble, Chemical, Unlock, Technology Relation
+#   Recipe: Number of items, Item quantity, Resultant Quantity, [Factories]
+## Factory: Facility, Factory Time: MK1, MK2, MK3, 
+## Unlock: Name, Picture
+## Used In: Name, Picture
+## Resources Array: [Matrix Items]  Information, Universe, Gravity, Energy, Electromagnetic, Structure
+
+# Number of items: Get Item picture and Ac.
+# Used In: Name, Picture or Ac.
+# Matrix Items: Name, Picture or Ac.
+# Facility: Get Item picture or Ac.
+# Factory Time: Get Item picture or Ac.
