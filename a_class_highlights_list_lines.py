@@ -269,7 +269,7 @@ def binary_search_number_steps(list, key):
 def best_search(list, key):
 
     steps_linear = linear_search_num_steps(list, key)
-    steps_binary = binary_search_num_steps(list, key)
+    steps_binary = binary_search_number_steps(list, key)
     results = "Linear: " + str(steps_linear) + " steps, "
     results += "Binary: " + str(steps_binary) + " steps. "
 
