@@ -13,3 +13,10 @@ April 2022:
   Added a new folder for Tkinter.  This is a self modivated effort to learn how to code GUIs with Python. I have added three outside sources for instructional material.
 
   The primary goal is develop a working stepped program that involves user interaction while processing a complex involved task.  
+  
+July 2022:
+
+ Dyson Sphere Project: 
+ 
+   Came up with a project to practice coding in Tkinter and Python.  I will be building an application to plan Dyson Sphere Program (DSP) Factories. The application will include a graphic user interface written in Tkinter. (See 'demo input.py' for starting development of idea.)
+ Credits: oldshavingfoam (https://www.reddit.com/user/oldshavingfoam/) has produced some detailed graphs of the components and technologies in DSP. However I will be adding some acronyms to help develop the iterface with text only for simplicity of design. (how_to_make_things.py)
