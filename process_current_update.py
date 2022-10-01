@@ -35,7 +35,7 @@ def check_modified(lines):
     pattern = r"Changes not staged for commit:"
     limit_pattern = r"modified:   "
     line_Count, ch_mod = find_start(lines, pattern)
-    print(f"{line_Count}: {ch_mod}")    
+    print(f"{line_Count}: {ch_mod}")
 
     for line in lines[line_Count+1:]:
         if re.search("^[A-Z]", line):
@@ -88,7 +88,7 @@ def main(txt_file_location):
     # Open the current_update.txt file
     try:
         file = open(txt_file_location)
-    except OSERROR:
+    except OSError:
         return None
     lines = file.readlines()
     lines.remove('\n')
@@ -108,7 +108,7 @@ def main(txt_file_location):
         (check_first_add, "Found files to be added"),
         (check_deleted, "Found items to delete")
     ]
-    
+
 
     # Run the checks
     everything_ok = True
