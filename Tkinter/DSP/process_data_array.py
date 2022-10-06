@@ -14,6 +14,14 @@ import os # interact with the folder
 
 '''Enter "./process_data_array.py how_to_make_things.py" at terminal.'''
 
+# regx string
+# set the regx string
+def test_regex(test_data):
+    regex = test_data
+    # result = re.search(regex, log)
+    # print(result[1])
+    return regex
+
 # Load the data
 def load_data(filename):
     print("Running Main")
@@ -29,19 +37,28 @@ def load_data(filename):
     for line in lines:
         print(line)
 
-# Process the data
-# regx string
-# Items to look for
+        # Process the data
 
-# Levels and the components and buildings which can be researched.
+
+
+        # Items to look for
+
+        # Levels and the components and buildings which can be researched.
 
 
 # procedural run
 def main():
+    regex = []
     print(os.getcwd())
-    print(print(os.path.exists(sys.argv[1])))
-    # With correct directory selected load the data.
-    load_data(sys.argv[1])
+    try:
+        if sys.argv[1] != "":
+            print(print(os.path.exists(sys.argv[1])))
+            # With correct directory selected load the data.
+            load_data(sys.argv[1])
+        else: 
+            print("Set up another access method")
+    except IndexError:
+        print("Need to run with file at terminal.")
 
 if __name__ == '__main__':
     main()

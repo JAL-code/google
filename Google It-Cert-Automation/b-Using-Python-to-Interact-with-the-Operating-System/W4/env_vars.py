@@ -15,3 +15,5 @@ import os
 print("HOME: " + os.environ.get("HOME", ""))
 print("SHELL: " + os.environ.get("SHELL", ""))
 print("FRUIT: " + os.environ.get("FRUIT", ""))
+# additional tests
+print("PYTHON: " + os.environ.get("PYTHON", ""))
