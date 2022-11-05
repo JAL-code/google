@@ -16,30 +16,38 @@ import os # interact with the folder
 
 # regx string
 # set the regx string
-def test_regex(test_data):
+def test_regex(test_data, test_line):
     regex = test_data
-    # result = re.search(regex, log)
+    result = re.search(regex, test_line)
     # print(result[1])
-    return regex
+    return result
 
 # Load the data
 def load_data(filename):
     print("Running Main")
+    test_reg = ""
     # Open the current_update.txt file
     try:
         file = open(filename)
     except OSError:
-        print("Check Filename")
+        print(f"Check Filename: {filename}")
         return None
     lines = file.readlines()
     lines.remove('\n')
 
     for line in lines:
-        print(line)
+        if printFileData:
+            print(line)
 
         # Process the data
+        if line[:7] == '# final':
+            print("Assigning filter")
+            test_reg = line[10:]
 
-
+        if test_reg != "":
+            print("Testing line")
+            test = test_regex(test_reg, line)
+            print(test)
 
         # Items to look for
 
@@ -48,17 +56,39 @@ def load_data(filename):
 
 # procedural run
 def main():
+    keyterm = f"{strDir}{strFolderSep}how_to_make_things.py"
     regex = []
     print(os.getcwd())
     try:
         if sys.argv[1] != "":
-            print(print(os.path.exists(sys.argv[1])))
+            print("Running terminal setup")
+            if printFileData:
+                print(print(os.path.exists(sys.argv[1])))
             # With correct directory selected load the data.
             load_data(sys.argv[1])
-        else: 
-            print("Set up another access method")
+        else:
+            print("Running windows setup")
+            if printFileData:                
+                print(os.getcwd())
+                print( f"Full Path    :{strPath}" )
+            strPath = os.path.realpath(__file__)
+            
+            load_data(keyterm)
+
     except IndexError:
-        print("Need to run with file at terminal.")
+        if printFileData: 
+            print("Running with default file.")
+        load_data(keyterm)
 
 if __name__ == '__main__':
+    printFileData = False
+    strPath = os.path.realpath(__file__)
+    strDir = os.path.dirname(__file__)    
+    strBase = os.path.basename(__file__) 
+    strFolderSep = os.path.sep
+    if printFileData: 
+        print( f"Full Path    :{strPath}" )
+        print( f"Dir name     :{strDir}" ) 
+        print( f"Base Name    :{strBase}" )     
+        print( f"Alt Name     :{strFolderSep}")
     main()
