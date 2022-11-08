@@ -2,12 +2,27 @@
 import codecs
 import os
 
-def main(location, base, sep, check_test):
+# import the parser application from the official python documention
+from html.parser import HTMLParser
+
+class MyHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        print("Encountered a start tag:", tag)
+
+    def handle_endtag(self, tag):
+        print("Encountered an end tag :", tag)
+
+    def handle_data(self, data):
+        print("Encountered some data  :", data)
+
+def create_test_html(location, base, sep, check_test):
     # to open/create a new html fle in the write mode
     # add error code to locate correct problem
     complete_location = f"{location}{sep}GFG.html"
+
     if printFileData: 
         print( f"HTML Path    :{complete_location}" )
+
     f = open(complete_location, 'w')
 
     # the html code which will go in the file GFG.html
@@ -21,7 +36,9 @@ def main(location, base, sep, check_test):
 
     <p>I'm the problem, it's me!</p>
 
-    <p>Taylor</p>
+    <p>Hhhiii</p>
+
+    <p>  ... Taylor ... </p>
 
     </body>
     </html>
@@ -32,17 +49,31 @@ def main(location, base, sep, check_test):
 
     # close the file
     f.close()
+    return complete_location
+
+def open_with_codecs(saved_location, check_test):
 
     # viewing html files
     # below code creates a 
     # codecs.StreamReaderWriter object
-
-    file = codecs.open(complete_location, 'r', "utf-8")
+    print("Testing open with codecs.")
+    file = codecs.open(saved_location, 'r', "utf-8")
 
     print(file.read())
 
+def open_with_parser(complete_location, check_test):
+
+    print("Testing open with codecs.")
+    # The Problem is here:  How to parse the text file?
+    parser = MyHTMLParser()
+    text_file = open(complete_location)
+    
+    contents = text_file.read()
+    print(contents)
+    parser.feed(contents)
+
 if __name__ == '__main__':
-    printFileData = True
+    printFileData = False
     remove = len('Web_operations')
     strPath = os.path.realpath(__file__)
     
@@ -56,4 +87,11 @@ if __name__ == '__main__':
         print( f"Base Name    :{strBase}" )
         print( f"HTML Home    :{home}")    
         print( f"Alt Name     :{strFolderSep}")
-    main(home, strBase, strFolderSep, printFileData)
+
+    default_location = create_test_html(home, strBase, strFolderSep, printFileData)
+
+    open_with_codecs(default_location, printFileData)
+
+    open_with_parser(default_location, printFileData)
+
+
