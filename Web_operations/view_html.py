@@ -5,6 +5,9 @@ import os
 # import the parser application from the official python documention
 from html.parser import HTMLParser
 
+# import browser access to the web
+import webbrowser
+
 class MyHTMLParser(HTMLParser):
     def handle_starttag(self, tag, attrs):
         print("Encountered a start tag:", tag)
@@ -63,17 +66,25 @@ def open_with_codecs(saved_location, check_test):
 
 def open_with_parser(complete_location, check_test):
 
-    print("Testing open with codecs.")
+    print("Testing open with parser.")
     # The Problem is here:  How to parse the text file?
     parser = MyHTMLParser()
     text_file = open(complete_location)
     
     contents = text_file.read()
-    print(contents)
+    if check_test:
+        print(contents)
     parser.feed(contents)
 
 if __name__ == '__main__':
     printFileData = False
+
+    # Ios = mode for mac system
+    # Linux = mode for linux based system (not tested yet)
+    # Win = mode for windows 
+    # Google = mode for chrome (not tested yet)
+    # Fox   = mode for Foxfire (not tested yet)
+    webmode = 'Win'
     remove = len('Web_operations')
     strPath = os.path.realpath(__file__)
     
@@ -94,4 +105,14 @@ if __name__ == '__main__':
 
     open_with_parser(default_location, printFileData)
 
+    test_website = r"https://docs.python.org/3/library/html.parser.html"
 
+    # Convert code to try method
+    if webmode == 'Ios':
+        c = webbrowser.get('safari')
+    
+    if webmode == 'Win':
+        c = webbrowser.get('windows-default')
+        
+    c.open(test_website)
+    c.open_new_tab(test_website)
