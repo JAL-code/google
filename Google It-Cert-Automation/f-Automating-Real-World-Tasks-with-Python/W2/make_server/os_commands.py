@@ -1597,4 +1597,4 @@ for matchNum, match in enumerate(matches, start=1):
         groupNum = groupNum
         start = match.start(groupNum)
         end = match.end(groupNum)
-        # print ("{}".format(group = match.group(groupNum)))
+        print ("{}".format(group = match.group(groupNum)))

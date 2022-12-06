@@ -17,7 +17,7 @@ for review in data:
     if '.' in review:
         try:
             file = open(f"{user_path}/{review}", "r")
-        except OSERROR:
+        except OSError:
             print(f"File {review} can not be opened.")
         lines = file.readlines()
         print(f"Lines:\n {lines}")

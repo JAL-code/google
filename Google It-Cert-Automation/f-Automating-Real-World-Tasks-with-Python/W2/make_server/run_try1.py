@@ -27,7 +27,7 @@ for review in data:
         source = "{}/{}".format(user_path, review)
         try:
             file = open(source, "r")
-        except OSERROR:
+        except OSError:
             print("File {} can not be opened.".format(review))
         lines = file.readlines()
         if VERBOSE:

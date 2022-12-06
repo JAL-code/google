@@ -105,6 +105,7 @@ if __name__ == '__main__':
 
     open_with_parser(default_location, printFileData)
 
+    # test opening the webbrowser from python -----------------------------
     test_website = r"https://docs.python.org/3/library/html.parser.html"
 
     # Convert code to try method

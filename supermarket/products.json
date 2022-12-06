@@ -1,0 +1,26 @@
+[
+    {
+        "item_num": "864761",
+        "aisle_loc": "67",
+        "bay_loc": "5",
+        "bin_loc": "0",
+        "item_price": "$199.00",
+        "item_save": "products"
+    },
+    {
+        "item_num": "1100333",
+        "aisle_loc": "69",
+        "bay_loc": "4",
+        "bin_loc": "5",
+        "item_price": "$199.00",
+        "item_save": "products"
+    },
+    {
+        "item_num": "294749",
+        "aisle_loc": "59",
+        "bay_loc": "32",
+        "bin_loc": "0",
+        "item_price": "$19.98",
+        "item_save": "products"
+    }
+]

@@ -8,7 +8,7 @@ import os
 import sys
 
 import PIL
-import PIL.image
+import PIL.Image
 
 from tqdm import tqdm
 

@@ -23,7 +23,7 @@ for review in data:
     if '.' in review and STAGE_TWO:
         try:
             file = open(f"{user_path}/{review}", "r")
-        except OSERROR:
+        except OSError:
             print(f"File {review} can not be opened.")
         lines = file.readlines()
         if VERBOSE:

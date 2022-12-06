@@ -62,7 +62,7 @@ class Clothing:
     return count
 
 class shirt(Clothing):
-      material="Cotton"
+  material="Cotton"
 class pants(Clothing):
   material="Cotton"
   

@@ -7,8 +7,9 @@ def combine_guests(guests1, guests2):
   combined_dict.update(guests2)
   #join one list to another
   temp_count = 0
+  clist = {}
   for friend in combined_dict:    #check to see if any counts missing.
-    if friend in guests1:           #all friends keys mutually added, so use new list to readd friends
+    if friend in guests1:           #all friends keys mutually added, so use new list to read friends
       temp_count += guests1.get(friend)
     if friend in guests2:
       temp_count += guests2.get(friend)

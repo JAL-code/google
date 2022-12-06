@@ -33,8 +33,8 @@ for review in data:
         source = "{}/{}".format(user_path, review)
         try:
             file = open(f"{user_path}/{review}", "r")
-        except OSERROR:
-            print("File {} can not be opened.".format(review))
+        except OSError:
+            print("File {} cannot be opened.".format(review))
         lines = file.readlines()
         if VERBOSE:
             print("Lines:\n {}".format(lines))
@@ -49,7 +49,7 @@ for review in data:
         if VERBOSE:
             print(temp_dict)
         if STAGE_THREE:
-            print("Posting to {}".format(web_address)
+            print("Posting to {}".format(web_address))
             response = requests.post(web_address, json=build_reviews)
             if not response.ok:
                 print("Error: {response.status_code}".format())
