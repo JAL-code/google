@@ -15,7 +15,7 @@ Store Associates:
   -  Or maybe you can find where you left topstock on the floor.  Save the aisle and bay and then generate a list of location so you can find them.
 
 Supporting Platform:
-  - Windows
-  - IPhone via A-Shell
-  - Linux (planned)
+  - Windows (Visual Studio Code)
+  - IPhone via A-Shell (planned)
+  - Linux (planned - no testing)
 
