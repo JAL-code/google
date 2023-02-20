@@ -8,8 +8,6 @@ def parent_directory_new():
   # Return the absolute path of the parent directory
   return os.path.abspath('..')
 
-print(parent_directory_new())
-
 def parent_directory():
       # Create a relative path to the parent 
   # of the current working directory 
@@ -18,7 +16,7 @@ def parent_directory():
   # Return the absolute path of the parent directory
   return os.path.abspath(relative_parent)
 
-print(parent_directory())
+print(f"Parent Dir.: {parent_directory()}")
 
 def parent_directory_solo():
       # Create a relative path to the parent 
@@ -28,7 +26,7 @@ def parent_directory_solo():
   # Return the absolute path of the parent directory
   return os.path.abspath(relative_parent_cwd)
 
-print(parent_directory_solo())
+print(f"New Solo Dir.: {parent_directory_solo()}")
 
 def parent_directory_parent():
       # Create a relative path to the parent 
@@ -38,4 +36,6 @@ def parent_directory_parent():
   # Return the absolute path of the parent directory
   return os.path.abspath(relative_parent_parent)
 
-print(parent_directory_parent())
+print(f"New Parent Dir.: {parent_directory_new()}")
+
+print(f"Relative Parent Dir.: {parent_directory_parent()}")

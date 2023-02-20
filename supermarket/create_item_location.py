@@ -129,6 +129,25 @@ def rebuild_default(file_name, relative_location):
     get_text.save_list_of_items(dataset, datasave)
     print(f"Save file: {file_name[0]}") 
 
+def end_program(endprogram):
+    pass
+    return endprogram
+
+def add_item(endprogram):
+    print("Add item")
+    return endprogram
+
+def delete_item(endprogram):
+    print("Delete item")
+    return endprogram
+
+def remove_item(endprogram):
+    print("Remove list")
+    return endprogram
+
+def print_items(endprogram):
+    print("Print items")
+    return endprogram
 
 if __name__ == '__main__':
     print("Starting ... ")
@@ -151,12 +170,13 @@ if __name__ == '__main__':
         endprogram = input("Action? ")
         match endprogram:
             case 'exit':
+                end_program(endprogram)
                 break
             case 'a':
-                print("Add item")
+                add_item(endprogram)
             case 'd':
-                print("Delete item")
+                delete_item(endprogram)
             case 'r':
-                print("Review list")
+                remove_item(endprogram)
             case 't':
-                print("Review Topstock")
+                print_items(endprogram)
