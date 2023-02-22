@@ -27,6 +27,16 @@ CREATE TABLE orders (
 )
 ''')
 
+# Create the orders table
+cursor.execute('''
+CREATE TABLE products (
+    product_id INTEGER PRIMARY KEY,
+    product_name TEXT NOT NULL,
+    available_date DATE NOT NULL,
+    price_amount REAL NOT NULL
+)
+''')
+
 # Commit the changes and close the connection
 conn.commit()
 conn.close()
