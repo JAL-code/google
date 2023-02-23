@@ -1,4 +1,5 @@
 # Chat Openai 2_22_23
+
 import sqlite3
 
 # Connect to the database
