@@ -1,7 +1,7 @@
-# Regex checks alternates for group headings, item name and acronym
-# original:  r"^(\#)|(\*)+ Level ([\w \.]*)|([\w \.]*)+|\(([\w \.]*)\)$"gm
-# complex:  r"^(\#)|(?P<level>  (\*)+ Level ([\w \.]*))|(?P<source>  0 Sources)|(?P<name>   ([\w \.|-]*)+)|(?P<acronym>:\s{2}\(([\w \.]*)\))$"gm
-# final:  r"^(\#)|(?P<level>  (\*)+ Level ([\w \.]*))|(?P<source>  0 Sources)|(?P<name>   ([\w \.\-\(\)]*)+)|(?P<acronym>:\s{2}\(([\w \.]*)\))$"gm
+# Regex checks alternates for group headings, item name and acronym (gm omitted)
+# original:  r"^(\#)|(\*)+ Level ([\w \.]*)|([\w \.]*)+|\(([\w \.]*)\)$"
+# complex:  r"^(\#)|(?P<level>  (\*)+ Level ([\w \.]*))|(?P<source>  0 Sources)|(?P<name>   ([\w \.|-]*)+)|(?P<acronym>:\s{2}\(([\w \.]*)\))$"
+# final:  r"^(\#)|(?P<level>  (\*)+ Level ([\w \.]*))|(?P<source>  0 Sources)|(?P<name>   ([\w \.\-\(\)]*)+)|(?P<acronym>:\s{2}\(([\w \.]*)\))$"
 # List of components and products
 #  0 Sources
 #   Copper vein:  (CV)

@@ -2,7 +2,7 @@
 import sqlite3
 
 # Connect to the database (creates the file if it doesn't exist)
-conn = sqlite3.connect('database.db')
+conn = sqlite3.connect('database2.db')
 
 # Create a cursor
 cursor = conn.cursor()
@@ -23,8 +23,14 @@ CREATE TABLE orders (
     customer_id INTEGER NOT NULL,
     order_date DATE NOT NULL,
     total_amount REAL NOT NULL,
+    status TEXT NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 )
+''')
+
+cursor.execute('''
+    ALTER TABLE orders
+    ADD CONSTRAINT valid_status CHECK (status IN ('completed', 'waiting pickup', 'missing items', 'waiting items', 'to be delivered', 'needs payment', 'canceled'))
 ''')
 
 # Create the orders table

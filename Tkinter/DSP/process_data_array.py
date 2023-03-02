@@ -37,17 +37,28 @@ def load_data(filename):
 
     for line in lines:
         if printFileData:
-            print(line)
+            print(f"Current input: {line}")
 
         # Process the data
         if line[:7] == '# final':
-            print("Assigning filter")
+            print(f"Assigning filter: {line[10:]}")
             test_reg = line[10:]
 
         if test_reg != "":
             print("Testing line")
-            test = test_regex(test_reg, line)
-            print(test)
+
+            cpattern = re.compile(test_reg, re.VERBOSE|re.MULTILINE)
+            # default is re.finditer
+            matches = re.finditer(cpattern, line)  
+        
+            # test = test_regex(test_reg, line)
+            print(f"Test: {matches}")
+
+            for matchNum, match in enumerate(matches, start=1):
+                if printCapture:
+                    print(f"Match {matchNum} was found at {match.start()}-{match.end()}: {match.group()}")
+                if printCapture:
+                    print(f"MatchNum: {matchNum} \nMatch: {match} \nNames:{match.groupdict()}")
 
         # Items to look for
 
@@ -82,6 +93,7 @@ def main():
 
 if __name__ == '__main__':
     printFileData = False
+    printCapture = True
     strPath = os.path.realpath(__file__)
     strDir = os.path.dirname(__file__)    
     strBase = os.path.basename(__file__) 

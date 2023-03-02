@@ -1,0 +1,69 @@
+import tkinter as tk
+from tkinter import messagebox
+from collections import defaultdict
+
+class RecipeApp:
+    def __init__(self, master):
+        self.master = master
+        self.master.title("Recipe App")
+
+        # Create a dictionary to store recipe quantities
+        self.recipe_quantities = defaultdict(list)
+
+        # Create label and entry widgets for recipe quantities
+        self.quantities_label = tk.Label(master, text="Enter recipe quantities:")
+        self.quantities_label.grid(row=0, column=0, padx=5, pady=5)
+
+        self.quantities_entries = []
+        for i in range(1, 6):
+            quantity_label = tk.Label(master, text=f"{i} items:")
+            quantity_label.grid(row=i, column=0, padx=5, pady=5)
+            quantity_entry = tk.Entry(master)
+            quantity_entry.grid(row=i, column=1, padx=5, pady=5)
+            self.quantities_entries.append(quantity_entry)
+
+        # Create a button to save recipe quantities to file
+        self.save_button = tk.Button(master, text="Save", command=self.save_quantities)
+        self.save_button.grid(row=6, column=1, padx=5, pady=5)
+
+        # Create a button to load all saved recipes
+        self.load_button = tk.Button(master, text="Load", command=self.load_recipes)
+        self.load_button.grid(row=6, column=0, padx=5, pady=5)
+
+    def save_quantities(self):
+        # Get the recipe quantities from the entry widgets and store them in the dictionary
+        for i, quantity_entry in enumerate(self.quantities_entries):
+            try:
+                quantity = int(quantity_entry.get())
+                self.recipe_quantities[i+2].append(quantity)
+            except ValueError:
+                messagebox.showerror("Error", f"Please enter a valid quantity for {i+2} items.")
+
+        # Save the recipe quantities to a text file
+        with open("recipes.txt", "a") as f:
+            for items, quantities in self.recipe_quantities.items():
+                for quantity in quantities:
+                    f.write(f"{items} items: {quantity}\n")
+
+        # Clear the entry widgets and recipe quantities dictionary
+        for quantity_entry in self.quantities_entries:
+            quantity_entry.delete(0, tk.END)
+        self.recipe_quantities.clear()
+
+        # Show a success message
+        messagebox.showinfo("Success", "Recipe quantities saved.")
+
+    def load_recipes(self):
+        # Load all saved recipes from the text file and display them in a message box
+        with open("recipes.txt", "r") as f:
+            recipes = f.read()
+
+        if not recipes:
+            messagebox.showwarning("No Recipes", "No recipes have been saved yet.")
+        else:
+            messagebox.showinfo("Recipes", recipes)
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = RecipeApp(root)
+    root.mainloop()
