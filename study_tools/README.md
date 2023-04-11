@@ -1,17 +1,17 @@
-Going to save study notes and other tips for working with Coursera here:
+# Study notes and other tips for working with Coursera here:
 
-Tips:
+## Tips:
 
 1. Run the code for the labs and modify them for your own use.
 2. Copy the text of the lectures to a text file before highlighting notes.
 3. Take note when text is flashed on the screen and save it. I would save the note at the same time.
 4. Write down and note the commands the instructor is using in the video.
 
-Created a program that will parse the text from the lectures into separate files.
+# Created a program that will parse the text from the lectures into separate files.
 
 See class_highlights_list_lines.py.
 
-How to guide:
+## How to guide:
 1. Open a text file.
 2. Note the video title.
   - [Week number]-[Quiz section]-[Item number: video, reading, etc]
@@ -35,7 +35,7 @@ How to guide:
   - [ * Caption : "The End" : 07 * ]
 
 ```
-# this line is only used to pass text to checks
+## this line is only used to pass text to checks
 STAGE_ONE_TEST = False      # Test finding closed brackets on one line
 STAGE_TWO_TEST = False      # Test finding closed brackets on multilines
 STAGE_THREE_TEST = False    # View found highlights and quantify
@@ -43,7 +43,7 @@ STAGE_FOUR_TEST = False     # View the headers found
 STAGE_FIVE_TEST = False     # Check range of highlights verses orginal file
 STAGE_SIX_TEST = True       # Toggle the printing of files to directory.
 ```
-Sample access script:
+## Sample access script:
 
 ```
 #!/usr/bin/env python3
@@ -54,7 +54,7 @@ def get_location_for_code():
     access_area = '/home/<user>/<folder>/'
     return access_area
 ```
-Note: run a profile of the program with pprofile3 and kcachegrind.  The file can be any name with a out extension. (.out):
+# Note: run a profile of the program with pprofile3 and kcachegrind.  The file can be any name with a out extension. (.out):
 ```
 $ pprofile3 -f callgrind -o profile_ch_2155_1.out python3 ./class_highlights_list_lines.py
 ```
@@ -78,3 +78,7 @@ For setup and Terminal example from class:
  1798  kcachegrind profile.out
 
 ```
+## To further coding skills, see notes from reviewing Leet-Code via CSJackie.
+
+
+

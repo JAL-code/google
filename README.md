@@ -8,7 +8,7 @@ If the text is entered into a command the terminal will only look for "Google" o
 To get this folder to work the character " needs a \" escape.
 Now terminal will recognize the folder location as "Google Folder_for_Python/example.py".
 
-April 2022:
+April 2022: (Redirected Effort in conjunction with FAA folder)
 
   Added a new folder for Tkinter.  This is a self modivated effort to learn how to code GUIs with Python. I have added three outside sources for instructional material.
 
@@ -16,7 +16,7 @@ April 2022:
   
 July 2022:
 
- Dyson Sphere Project: 
+ Dyson Sphere Project: (On Hold)
  
    Came up with a project to practice coding in Tkinter and Python.  I will be building an application to plan Dyson Sphere Program (DSP) Factories. The application will include a graphic user interface written in Tkinter. (See 'demo input.py' for starting development of idea.)
  Credits: oldshavingfoam (https://www.reddit.com/user/oldshavingfoam/) has produced some detailed graphs of the components and technologies in DSP. However I will be adding some acronyms to help develop the iterface with text only for simplicity of design. (how_to_make_things.py)
