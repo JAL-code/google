@@ -1,0 +1,33 @@
+import math
+
+# Input wire parameters
+input_turns = 4
+input_count = 2
+mm_diameter = 2 # in millimeters
+input_diameter = mm_diameter/1000  # in meters
+
+# Output wire parameters
+output_turns = 15
+mm_diameter2 = 1 # in millimeters
+output_diameter = mm_diameter2/1000  # in meters
+
+# Length of the wire in meters
+wire_length = .2
+
+# Cross-sectional area of the wires
+input_area = math.pi * (input_diameter/2)**2
+print(f"Input area: {input_area}")
+output_area = math.pi * (output_diameter/2)**2
+print(f"Output area: {output_area}")
+      
+# Inductance of the input wires
+input_inductance = (4 * math.pi * 10**-7 * input_turns**2 * input_count**2 * input_area) / wire_length
+
+# Inductance of the output wire
+output_inductance = (4 * math.pi * 10**-7 * output_turns**2 * output_area) / wire_length
+
+# Total inductance of the coil
+total_inductance = input_inductance + output_inductance
+
+# Output the total inductance in henries
+print(f"The total inductance of the coil is {total_inductance / 10**-9:.10f} nH")
