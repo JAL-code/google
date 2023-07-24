@@ -1,0 +1,21 @@
+let
+    Source = Excel.CurrentWorkbook(){[Name="Table1"]}[Content],
+    #"Changed Type" = Table.TransformColumnTypes(Source,{   {"Item", type text}, 
+                                                            {"Item Lead", type text}, 
+                                                            {"ANS", type text}, 
+                                                            {"ANS Lead", type text}, 
+                                                            {"BUS", type text}, 
+                                                            {"BUS Lead", type text},
+                                                            {"TRACK", type text}, 
+                                                            {"TRACK Lead", type text}}),
+    #"Replaced Value" = Table.ReplaceValue(#"Changed Type",null,"",Replacer.ReplaceValue,{"Item"}),
+    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value",null,"",Replacer.ReplaceValue,
+                                                            {"Item Lead", "ANS", "ANS Lead", "BUS", "BUS Lead", "TRACK", "TRACK Lead"}),
+    #"Added Custom" = Table.AddColumn(#"Replaced Value1", "Current COG", each 
+        if Text.Contains([TRACK], "TRACK-", Comparer.OrdinalIgnoreCase) then [TRACK Lead]
+        else if Text.Contains([BUS], "BUS-", Comparer.OrdinalIgnoreCase) then [BUS Lead]
+        else if Text.Contains([ANS], "ANS-", Comparer.OrdinalIgnoreCase) then [ANS Lead]
+        else if Text.Contains([Item], "IT-", Comparer.OrdinalIgnoreCase) then [Item Lead]
+        else "")
+in
+    #"Added Custom"
